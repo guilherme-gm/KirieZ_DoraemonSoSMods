@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaminaBar", "StaminaBar\StaminaBar.csproj", "{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{F4707E56-2055-4E78-97C8-12BF7D9743F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4707E56-2055-4E78-97C8-12BF7D9743F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4707E56-2055-4E78-97C8-12BF7D9743F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
