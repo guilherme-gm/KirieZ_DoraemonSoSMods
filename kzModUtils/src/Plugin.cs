@@ -9,6 +9,15 @@ namespace kzModUtils
 		{
 			// Plugin startup logic
 			Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+
+			TimeModule.Initialize();
+			UIModule.Initialize();
+		}
+
+		private void Destroy()
+		{
+			TimeModule.Teardown();
+			UIModule.Teardown();
 		}
 	}
 }
