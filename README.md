@@ -33,3 +33,10 @@ Displays a little window with your current stamina, so you don't have to pause t
 ## Doramon Story of Seasons mod template settings
 - TFM: net35
 - Unity version: 2017.4.10
+
+
+## Issues
+If you have found any issue, consider opening an Issue and stating as much details as possible.
+
+## Contributting
+See [Contributting](./CONTRIBUTTING.md).
