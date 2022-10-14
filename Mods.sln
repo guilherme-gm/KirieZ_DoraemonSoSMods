@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfirmBeehiveRemoval", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DumpMaster", "DumpMaster\DumpMaster.csproj", "{32A4BDEB-E397-4C4A-9054-8C4E155D563B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventAlert", "EventAlert\EventAlert.csproj", "{7E29C011-FE2F-4C62-9C5D-3D690361B876}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{32A4BDEB-E397-4C4A-9054-8C4E155D563B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A4BDEB-E397-4C4A-9054-8C4E155D563B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32A4BDEB-E397-4C4A-9054-8C4E155D563B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E29C011-FE2F-4C62-9C5D-3D690361B876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E29C011-FE2F-4C62-9C5D-3D690361B876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E29C011-FE2F-4C62-9C5D-3D690361B876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E29C011-FE2F-4C62-9C5D-3D690361B876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
