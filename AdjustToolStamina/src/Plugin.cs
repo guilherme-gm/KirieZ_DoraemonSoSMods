@@ -5,7 +5,6 @@ using System.Collections.Generic;
 namespace AdjustToolStamina
 {
 	[BepInPlugin("io.github.guilherme-gm.DoraemonSoSMods.adjustToolStamina", "Adjust tool stamina", PluginInfo.PLUGIN_VERSION)]
-	[BepInDependency("io.github.guilherme-gm.DoraemonSoSMods.kzModUtils")]
 	public class Plugin : BaseUnityPlugin
 	{
 		private void Awake()
