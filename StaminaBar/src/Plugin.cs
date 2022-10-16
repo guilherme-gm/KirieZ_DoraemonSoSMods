@@ -3,7 +3,6 @@ using HarmonyLib;
 using UnityEngine;
 using kzModUtils;
 using kzModUtils.Events;
-using System.IO;
 
 namespace StaminaBar
 {
@@ -11,8 +10,6 @@ namespace StaminaBar
 	[BepInDependency("io.github.guilherme-gm.DoraemonSoSMods.kzModUtils")]
 	public class Plugin : BaseUnityPlugin
 	{
-		private static AssetBundle Assets;
-
 		private static StaminaBarUIPartController StaminaUI;
 
 		private void Awake()
@@ -22,12 +19,11 @@ namespace StaminaBar
 
 			Harmony.CreateAndPatchAll(typeof(Plugin));
 
-			Assets = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, Path.Combine("AssetBundles", "StaminaUIMod")));
-			var staminaUIobject = Assets.LoadAsset<GameObject>("StaminaPanel");
-
 			UIModule.OnGameUIReady += (object sender, GameUIReadyEventArgs args) =>
 			{
-				var uiObj = Instantiate(staminaUIobject, args.Parent.transform);
+				var uiObj = UIModule.CreateBackgroundImage(new Vector3(-5, -87), new Vector2(135, 26)).gameObject;
+				UIModule.CreateText(new Vector3(17, 0), new Vector2(117, 26), "", uiObj);
+
 				StaminaUI = uiObj.AddComponent<StaminaBarUIPartController>();
 				StaminaUI.Initialize();
 
@@ -37,11 +33,6 @@ namespace StaminaBar
 		private static void FarmTop_DestroyedCallback()
 		{
 			GameObject.Destroy(StaminaUI.gameObject);
-		}
-
-		public static void Teardown()
-		{
-			Assets.Unload(true);
 		}
 
 		[HarmonyPatch(typeof(StaminaModel), "RaiseMax")]
