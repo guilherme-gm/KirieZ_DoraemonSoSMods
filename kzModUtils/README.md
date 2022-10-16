@@ -11,7 +11,11 @@ You must have BepInEx v5 and kz Mod Utils installed on your game.
 - [Download BepInEx v5](https://github.com/BepInEx/BepInEx/releases)
 	- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 
-After having it installed, download the latest version of the kz Mod Utils from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases?q=kz+Mod+Utils&expanded=true) page and add its dll to your BepInEx's plugins folder.
+After having BepInEx installed:
+1. download the latest version of the kz Mod Utils from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases?q=kz+Mod+Utils&expanded=true) page;
+2. Extract the zip file;
+3. Move the DLL file to your game's plugin foldere (from BepInEx);
+4. Copy the AssetBundles folder and paste into your game's `DORaEMON STORY OF SEASONS_Data` folder.
 
 
 ## Building

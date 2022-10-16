@@ -4,7 +4,7 @@
 		<TargetFramework>net35</TargetFramework>
 		<AssemblyName>kzModUtils</AssemblyName>
 		<Description>kz Modding Utilities -- Set of helpers for modding Doraemon Story of Seasons</Description>
-		<Version>0.1.0</Version>
+		<Version>0.2.0</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
@@ -22,6 +22,9 @@
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp">
 			<HintPath>.\libs\Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>.\libs\UnityEngine.UI.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>

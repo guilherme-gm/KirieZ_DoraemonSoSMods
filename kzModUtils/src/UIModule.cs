@@ -1,6 +1,8 @@
 using HarmonyLib;
 using kzModUtils.Events;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace kzModUtils
@@ -10,6 +12,8 @@ namespace kzModUtils
 	 */
 	public class UIModule
 	{
+		private static AssetBundle Assets;
+
 		/**
 		 * Event triggered when the Game UI is ready to receive UI elements.
 		 * 
@@ -30,15 +34,27 @@ namespace kzModUtils
 		 */
 		public static EventLogUIPartController EventLog = null;
 
+		private static Dictionary<UIElementType, GameObject> UIPrefabs = new Dictionary<UIElementType, GameObject>();
+
 
 		public static void Initialize()
 		{
 			Harmony.CreateAndPatchAll(typeof(UIModule));
+
+			Assets = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, Path.Combine("AssetBundles", "kzModUtils_UIElements")));
+			UIPrefabs.Add(UIElementType.BackgroundImage, Assets.LoadAsset<GameObject>("BackgroundImage"));
+			UIPrefabs.Add(UIElementType.Text, Assets.LoadAsset<GameObject>("TextElement"));
 		}
 
 		public static void Teardown()
 		{
+			foreach (var prefab in UIPrefabs.Values)
+			{
+				GameObject.Destroy(prefab);
+			}
+			UIPrefabs = new Dictionary<UIElementType, GameObject>();
 
+			Assets.Unload(true);
 		}
 
 		/**
@@ -71,6 +87,57 @@ namespace kzModUtils
 		{
 			// SingletonMonoBehaviour<UIManager>.Instance.Pop(null); 
 			SingletonMonoBehaviour<UIManager>.Instance.PopExceptForBottom(null);
+		}
+
+		private static T CreateUIElement<T>(string method, UIElementType elementType, Vector3 position, GameObject parent = null) where T: UnityEngine.UI.Graphic
+		{
+			if (parent == null)
+			{
+				parent = CommonUICanvas;
+			}
+
+			if (parent == null)
+			{
+				Console.WriteLine($"{method}: Can't create element without parent before Common Canvas is created.");
+				return default;
+			}
+
+			GameObject prefab;
+			if (!UIPrefabs.TryGetValue(elementType, out prefab))
+			{
+				Console.WriteLine($"{method}: prefab not found.");
+				return default;
+			}
+
+			var uiObject = GameObject.Instantiate(prefab, parent.transform);
+			var uiElement = uiObject.GetComponent<T>();
+
+			uiElement.rectTransform.anchoredPosition = position;
+
+			return uiElement;
+		}
+
+		public static UnityEngine.UI.Text CreateText(Vector3 position, Vector2 size, string text = "", GameObject parent = null)
+		{
+			var textComponent = CreateUIElement<UnityEngine.UI.Text>("UIModule.CreateText", UIElementType.Text, position, parent);
+			if (textComponent != null)
+			{
+				textComponent.rectTransform.sizeDelta = size;
+				textComponent.text = text;
+			}
+
+			return textComponent;
+		}
+
+		public static UnityEngine.UI.Image CreateBackgroundImage(Vector3 position, Vector2 size, GameObject parent = null)
+		{
+			var bgImageComponent = CreateUIElement<UnityEngine.UI.Image>("UIModule.CreateRectangle", UIElementType.BackgroundImage, position, parent);
+			if (bgImageComponent != null)
+			{
+				bgImageComponent.rectTransform.sizeDelta = size;
+			}
+
+			return bgImageComponent;
 		}
 	}
 }
