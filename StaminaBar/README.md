@@ -2,6 +2,8 @@
 
 Displays a little window with your current stamina, so you don't have to pause the game to check.
 
+![Stamina Bar Mod](../docs/modImages/StaminaBarMod.gif)
+
 ## Installation
 You must have BepInEx v5 and kz Mod Utils installed on your game.
 - [Download BepInEx v5](https://github.com/BepInEx/BepInEx/releases)

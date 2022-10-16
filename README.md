@@ -30,6 +30,8 @@ Adds a new line to item descriptions in inventory stating the value for which yo
 ### Stamina Bar
 Displays a little window with your current stamina, so you don't have to pause the game to check.
 
+![Stamina Bar mod](./docs/modImages/StaminaBarMod.gif)
+
 ## Doramon Story of Seasons mod template settings
 - TFM: net35
 - Unity version: 2017.4.10
