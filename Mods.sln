@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventAlert", "EventAlert\Ev
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowItemPrice", "ShowItemPrice\ShowItemPrice.csproj", "{56A0589A-E853-48FA-B7D8-9677FD680FD7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapShopTimes", "MapShopTimes\MapShopTimes.csproj", "{46C2B6F6-1070-44FB-A0A9-5D490BA5C1DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{56A0589A-E853-48FA-B7D8-9677FD680FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A0589A-E853-48FA-B7D8-9677FD680FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A0589A-E853-48FA-B7D8-9677FD680FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C2B6F6-1070-44FB-A0A9-5D490BA5C1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C2B6F6-1070-44FB-A0A9-5D490BA5C1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C2B6F6-1070-44FB-A0A9-5D490BA5C1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C2B6F6-1070-44FB-A0A9-5D490BA5C1DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

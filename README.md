@@ -24,6 +24,11 @@ Utility to dump the binary resources as text. This is a prototype and quite unst
 ### Event Alert (Untested)
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
 
+### Map Shop Times
+Adds a new button to the minimap window to toggle a small extra window that shows shops opening times so you don't have to check external guides.
+
+![Map Shop times](./docs/modImages/ShopTimesMod.gif)
+
 ### Show Item Price
 Adds a new line to item descriptions in inventory stating the value for which you would sell it. It takes into account the quality bonus.
 
