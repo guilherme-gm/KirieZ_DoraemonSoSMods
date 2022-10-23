@@ -22,6 +22,8 @@ namespace MapShopTimes
 
 		private static GameObject ShopTimeMenu;
 
+		private static bool isAnywhereDoor = false;
+
 		private readonly ShopTimes[] Times =
 		{
 			new ShopTimes() {
@@ -198,7 +200,7 @@ namespace MapShopTimes
 		[HarmonyPrefix]
 		public static void SubmitAction(ref bool __runOriginal, ref UIPartController __instance)
 		{
-			if (!(__instance is MiniMapMenuUIPartController))
+			if (!(__instance is MiniMapMenuUIPartController) || isAnywhereDoor)
 				return;
 
 			__runOriginal = false;
@@ -227,6 +229,22 @@ namespace MapShopTimes
 		public static void MenuClose()
 		{
 			DestroyShopMenu();
+			isAnywhereDoor = false;
+		}
+
+		[HarmonyPatch(typeof(MiniMapMenuUIPartController), "ToDokodemoDoorCursor")]
+		[HarmonyPrefix]
+		public static void AnywhereDoorCursortSet()
+		{
+			isAnywhereDoor = true;
+		}
+
+		[HarmonyPatch(typeof(DokodemoDoorUIController), "Submit")]
+		[HarmonyPostfix]
+		public static void AnywhereDoorSubmit(int __result)
+		{
+			if (__result > 0)
+				isAnywhereDoor = false;
 		}
 	}
 }
