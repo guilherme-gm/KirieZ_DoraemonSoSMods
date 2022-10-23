@@ -2,8 +2,8 @@ using BepInEx;
 using HarmonyLib;
 using kzModUtils;
 using UnityEngine;
-using System;
 using System.Text;
+using kzModUtils.UIElementBuilder;
 
 namespace MapShopTimes
 {
@@ -22,7 +22,7 @@ namespace MapShopTimes
 
 		private static GameObject ShopTimeMenu;
 
-		private ShopTimes[] Times =
+		private readonly ShopTimes[] Times =
 		{
 			new ShopTimes() {
 				shopName = "Cafe",
@@ -109,11 +109,6 @@ namespace MapShopTimes
 
 		private void UIModule_OnGameUIReady(object sender, kzModUtils.Events.GameUIReadyEventArgs e)
 		{
-			var bg = UIModule.CreateBackgroundImage(new Vector3(15, -30), new Vector2(200, 660));
-			var title = UIModule.CreateText(new Vector3(5, -10), new Vector2(190, 25), "- Shop Times -", bg.gameObject);
-			title.alignment = TextAnchor.UpperCenter;
-			title.fontSize = 22;
-
 			StringBuilder sb = new StringBuilder();
 			foreach (var shop in this.Times)
 			{
@@ -126,10 +121,30 @@ namespace MapShopTimes
 				sb.Append("\n");
 			}
 
-			var text = UIModule.CreateText(new Vector3(5, -40), new Vector2(190, 620), sb.ToString(), bg.gameObject);
-			text.alignment = TextAnchor.UpperLeft;
+			ShopTimeMenuPrefab = (new BackgroundImageBuilder())
+				.SetCanvasAsParent()
+				.SetPosition(new Vector3(15, 30))
+				.SetSize(new Vector2(200, 660))
+				.Build()
+				.gameObject;
 
-			ShopTimeMenuPrefab = bg.gameObject;
+
+			(new TextBuilder())
+				.SetParent(ShopTimeMenuPrefab.transform)
+				.SetPosition(new Vector3(5, 10))
+				.SetSize(new Vector2(190, 25))
+				.SetText("- Shop Times -")
+				.SetFontSize(22)
+				.SetAlignment(TextAnchor.UpperCenter)
+				.Build();
+
+			(new TextBuilder())
+				.SetParent(ShopTimeMenuPrefab.transform)
+				.SetPosition(new Vector3(5, 40))
+				.SetSize(new Vector2(190, 620))
+				.SetText(sb.ToString())
+				.Build();
+
 			ShopTimeMenuPrefab.SetActive(false);
 		}
 
@@ -199,8 +214,6 @@ namespace MapShopTimes
 			}
 		}
 
-		// [HarmonyPatch(typeof(MenuUIPartController), "ClosedCallback")]
-		
 		[HarmonyPatch(typeof(MenuUIController), "UpdateContents")]
 		[HarmonyPostfix]
 		public static void MenuChange(ref MenuContentUIPartController ___mCurrentMenuContent)
