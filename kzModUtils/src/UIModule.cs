@@ -34,7 +34,7 @@ namespace kzModUtils
 		 */
 		public static EventLogUIPartController EventLog = null;
 
-		private static Dictionary<UIElementType, GameObject> UIPrefabs = new Dictionary<UIElementType, GameObject>();
+		internal static Dictionary<UIElementType, GameObject> UIPrefabs = new Dictionary<UIElementType, GameObject>();
 
 
 		public static void Initialize()
@@ -87,57 +87,6 @@ namespace kzModUtils
 		{
 			// SingletonMonoBehaviour<UIManager>.Instance.Pop(null); 
 			SingletonMonoBehaviour<UIManager>.Instance.PopExceptForBottom(null);
-		}
-
-		private static T CreateUIElement<T>(string method, UIElementType elementType, Vector3 position, GameObject parent = null) where T: UnityEngine.UI.Graphic
-		{
-			if (parent == null)
-			{
-				parent = CommonUICanvas;
-			}
-
-			if (parent == null)
-			{
-				Console.WriteLine($"{method}: Can't create element without parent before Common Canvas is created.");
-				return default;
-			}
-
-			GameObject prefab;
-			if (!UIPrefabs.TryGetValue(elementType, out prefab))
-			{
-				Console.WriteLine($"{method}: prefab not found.");
-				return default;
-			}
-
-			var uiObject = GameObject.Instantiate(prefab, parent.transform);
-			var uiElement = uiObject.GetComponent<T>();
-
-			uiElement.rectTransform.anchoredPosition = position;
-
-			return uiElement;
-		}
-
-		public static UnityEngine.UI.Text CreateText(Vector3 position, Vector2 size, string text = "", GameObject parent = null)
-		{
-			var textComponent = CreateUIElement<UnityEngine.UI.Text>("UIModule.CreateText", UIElementType.Text, position, parent);
-			if (textComponent != null)
-			{
-				textComponent.rectTransform.sizeDelta = size;
-				textComponent.text = text;
-			}
-
-			return textComponent;
-		}
-
-		public static UnityEngine.UI.Image CreateBackgroundImage(Vector3 position, Vector2 size, GameObject parent = null)
-		{
-			var bgImageComponent = CreateUIElement<UnityEngine.UI.Image>("UIModule.CreateRectangle", UIElementType.BackgroundImage, position, parent);
-			if (bgImageComponent != null)
-			{
-				bgImageComponent.rectTransform.sizeDelta = size;
-			}
-
-			return bgImageComponent;
 		}
 	}
 }
