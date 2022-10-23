@@ -3,6 +3,7 @@ using HarmonyLib;
 using UnityEngine;
 using kzModUtils;
 using kzModUtils.Events;
+using kzModUtils.UIElementBuilder;
 
 namespace StaminaBar
 {
@@ -21,8 +22,19 @@ namespace StaminaBar
 
 			UIModule.OnGameUIReady += (object sender, GameUIReadyEventArgs args) =>
 			{
-				var uiObj = UIModule.CreateBackgroundImage(new Vector3(-5, -87), new Vector2(135, 26)).gameObject;
-				UIModule.CreateText(new Vector3(17, 0), new Vector2(117, 26), "", uiObj);
+				var uiObj = (new BackgroundImageBuilder())
+					.SetCanvasAsParent()
+					.SetPosition(new Vector3(-5, 87))
+					.SetSize(new Vector2(135, 26))
+					.Build()
+					.gameObject;
+				(new TextBuilder())
+					.SetParent(uiObj.transform)
+					.SetPosition(new Vector3(17, 0))
+					.SetSize(new Vector2(117, 26))
+					.SetAlignment(TextAnchor.MiddleLeft)
+					.SetText("")
+					.Build();
 
 				StaminaUI = uiObj.AddComponent<StaminaBarUIPartController>();
 				StaminaUI.Initialize();
