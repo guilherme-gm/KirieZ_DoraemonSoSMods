@@ -10,7 +10,7 @@ You must have BepInEx v5 and kz Mod Utils installed on your game.
 	- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 - [kz Mod Utils page](../kzModUtils/)
 
-After having both installed, download the latest version of the mod from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases?q=Show+Item+Pricet&expanded=true) page and add its dll to your BepInEx's plugins folder.
+After having both installed, download the latest version of the mod from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases?q=Stamina+Bar&expanded=true) page and add its dll to your BepInEx's plugins folder.
 
 
 ## Building
