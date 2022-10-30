@@ -1,5 +1,6 @@
 using HarmonyLib;
 using kzModUtils.Resource;
+using kzModUtils.UI.Elements;
 using kzModUtils.UI.Events;
 using System.Collections.Generic;
 using System.IO;
@@ -15,15 +16,15 @@ namespace kzModUtils.UI
 	{
 		private static AssetBundle Assets;
 
-		internal static Dictionary<UIElementType, GameObject> UIPrefabs = new Dictionary<UIElementType, GameObject>();
+		internal static Dictionary<ElementType, GameObject> UIPrefabs = new Dictionary<ElementType, GameObject>();
 
 		internal static void Initialize()
 		{
 			Harmony.CreateAndPatchAll(typeof(UIModule));
 
 			Assets = AssetBundle.LoadFromFile(ResourceUtils.GetAssetBundlePath(ResourceType.Plugin, "kzModUtils/UIElements", ""));
-			UIPrefabs.Add(UIElementType.BackgroundImage, Assets.LoadAsset<GameObject>("BackgroundImage"));
-			UIPrefabs.Add(UIElementType.Text, Assets.LoadAsset<GameObject>("TextElement"));
+			UIPrefabs.Add(ElementType.BackgroundImage, Assets.LoadAsset<GameObject>("BackgroundImage"));
+			UIPrefabs.Add(ElementType.Text, Assets.LoadAsset<GameObject>("TextElement"));
 		}
 
 		internal static void Teardown()
@@ -32,7 +33,7 @@ namespace kzModUtils.UI
 			{
 				GameObject.Destroy(prefab);
 			}
-			UIPrefabs = new Dictionary<UIElementType, GameObject>();
+			UIPrefabs = new Dictionary<ElementType, GameObject>();
 
 			Assets.Unload(true);
 		}

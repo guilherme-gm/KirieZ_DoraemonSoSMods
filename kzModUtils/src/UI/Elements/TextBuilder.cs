@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
-namespace kzModUtils.UI.UIElementBuilder
+namespace kzModUtils.UI.Elements
 {
-	public class TextBuilder : BaseUIElementBuilder<UnityEngine.UI.Text, TextBuilder>
+	public class TextBuilder : BaseUIElementBuilder<TextBuilder>
 	{
 		protected string Text = null;
 
@@ -10,7 +11,7 @@ namespace kzModUtils.UI.UIElementBuilder
 
 		protected TextAnchor Align = TextAnchor.UpperLeft;
 
-		public TextBuilder() : base(UIElementType.Text) { }
+		public TextBuilder() : base(ElementType.Text) { }
 
 		public TextBuilder SetText(string text)
 		{
@@ -30,9 +31,13 @@ namespace kzModUtils.UI.UIElementBuilder
 			return this;
 		}
 
-		public override UnityEngine.UI.Text Build(Transform parentTransform = null)
+		public UnityEngine.UI.Text Build(Transform parentTransform = null)
 		{
-			var textObj = base.Build(parentTransform);
+			var textObj = base.BuildBase(parentTransform).GetComponent<UnityEngine.UI.Text>();
+			if (textObj == null) {
+				Console.WriteLine("TextBuilder: Could not find text component.");
+				throw new Exception("Could not find text component.");
+			}
 
 			if (Text != null)
 				textObj.text = Text;

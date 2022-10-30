@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
 
-namespace kzModUtils.UI.UIElementBuilder
+namespace kzModUtils.UI.Elements
 {
-	public abstract class BaseUIElementBuilder<ElementClass, BuilderClass>
-		where ElementClass : UnityEngine.UI.Graphic
-		where BuilderClass : BaseUIElementBuilder<ElementClass, BuilderClass>
+	public abstract class BaseUIElementBuilder<BuilderClass>
+		where BuilderClass : BaseUIElementBuilder<BuilderClass>
 	{
-		protected UIElementType ElementType;
+		protected ElementType Type;
 
 		protected Transform Parent = null;
 
@@ -15,9 +14,9 @@ namespace kzModUtils.UI.UIElementBuilder
 
 		protected Vector2 Size = Vector2.zero;
 
-		public BaseUIElementBuilder(UIElementType elementType)
+		public BaseUIElementBuilder(ElementType elementType)
 		{
-			ElementType = elementType;
+			Type = elementType;
 		}
 
 		protected Vector3 ConvertPosition(Vector3 pos)
@@ -54,11 +53,11 @@ namespace kzModUtils.UI.UIElementBuilder
 			return this as BuilderClass;
 		}
 
-		public virtual ElementClass Build(Transform parent = null)
+		protected virtual GameObject BuildBase(Transform parent = null)
 		{
-			if (!UIModule.UIPrefabs.TryGetValue(ElementType, out GameObject prefab))
+			if (!UIModule.UIPrefabs.TryGetValue(Type, out GameObject prefab))
 			{
-				Console.WriteLine($"{ElementType}: prefab not found.");
+				Console.WriteLine($"{Type}: prefab not found.");
 				return default;
 			}
 
@@ -70,7 +69,7 @@ namespace kzModUtils.UI.UIElementBuilder
 			else
 				uiObject = GameObject.Instantiate(prefab);
 
-			var uiElement = uiObject.GetComponent<ElementClass>();
+			var uiElement = uiObject.GetComponent<UnityEngine.UI.Graphic>();
 
 			if (Position != Vector3.zero)
 				uiElement.rectTransform.anchoredPosition = Position;
@@ -78,7 +77,7 @@ namespace kzModUtils.UI.UIElementBuilder
 			if (Size != Vector2.zero)
 				uiElement.rectTransform.sizeDelta = Size;
 
-			return uiElement;
+			return uiObject;
 		}
 	}
 }
