@@ -55,7 +55,7 @@ namespace kzModUtils.UI.Elements
 
 		protected virtual GameObject BuildBase(Transform parent = null)
 		{
-			if (!UIModule.UIPrefabs.TryGetValue(Type, out GameObject prefab))
+			if (!UIAssets.Prefabs.TryGetValue(Type, out GameObject prefab))
 			{
 				Console.WriteLine($"{Type}: prefab not found.");
 				return default;
