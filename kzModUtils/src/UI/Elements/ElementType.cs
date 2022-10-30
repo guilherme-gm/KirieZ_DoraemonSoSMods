@@ -4,5 +4,6 @@ namespace kzModUtils.UI.Elements
 	{
 		BackgroundImage,
 		Text,
+		MessageBox,
 	}
 }

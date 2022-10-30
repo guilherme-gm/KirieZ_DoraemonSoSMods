@@ -69,13 +69,13 @@ namespace kzModUtils.UI.Elements
 			else
 				uiObject = GameObject.Instantiate(prefab);
 
-			var uiElement = uiObject.GetComponent<UnityEngine.UI.Graphic>();
+			var rectTransform = uiObject.GetComponent<RectTransform>();
 
 			if (Position != Vector3.zero)
-				uiElement.rectTransform.anchoredPosition = Position;
+				rectTransform.anchoredPosition = Position;
 
 			if (Size != Vector2.zero)
-				uiElement.rectTransform.sizeDelta = Size;
+				rectTransform.sizeDelta = Size;
 
 			return uiObject;
 		}
