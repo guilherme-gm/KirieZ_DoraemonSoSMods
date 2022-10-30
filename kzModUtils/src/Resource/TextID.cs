@@ -1,8 +1,8 @@
-namespace kzModUtils
+namespace kzModUtils.Resource
 {
 	/**
 	 * Text IDs for ResourceModule.GetText()
-	 * 
+	 *
 	 * The structure is based on original game's Define.Text but with readable names
 	 */
 	public static class TextID

@@ -1,10 +1,10 @@
 
-namespace kzModUtils
+namespace kzModUtils.Resource
 {
 	/**
 	 * Module related to game resources
 	 */
-	public class ResourceModule
+	public static class ResourceUtils
 	{
 		/**
 		 * Retrieves text message from text dictionary (TextMaster).
