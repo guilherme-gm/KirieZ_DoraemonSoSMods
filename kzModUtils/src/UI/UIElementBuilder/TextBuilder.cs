@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace kzModUtils.UIElementBuilder
+namespace kzModUtils.UI.UIElementBuilder
 {
 	public class TextBuilder : BaseUIElementBuilder<UnityEngine.UI.Text, TextBuilder>
 	{

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace kzModUtils.UIElementBuilder
+namespace kzModUtils.UI.UIElementBuilder
 {
 	public abstract class BaseUIElementBuilder<ElementClass, BuilderClass>
 		where ElementClass : UnityEngine.UI.Graphic

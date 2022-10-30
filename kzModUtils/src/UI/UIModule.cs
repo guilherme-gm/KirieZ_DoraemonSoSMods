@@ -1,11 +1,11 @@
 using HarmonyLib;
-using kzModUtils.Events;
+using kzModUtils.UI.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace kzModUtils
+namespace kzModUtils.UI
 {
 	/**
 	 * Module to take care of UI-related tasks
@@ -16,7 +16,7 @@ namespace kzModUtils
 
 		/**
 		 * Event triggered when the Game UI is ready to receive UI elements.
-		 * 
+		 *
 		 * To be used by mods that want to extend the game's UI
 		 */
 		public static event EventHandler<GameUIReadyEventArgs> OnGameUIReady;
@@ -59,7 +59,7 @@ namespace kzModUtils
 
 		/**
 		 * FarmTopUIController.Initialize is called when the GameUI is created.
-		 * 
+		 *
 		 * Hooking it allows us to find important elements of the interface, such as the event log and the main canvas.
 		 */
 		[HarmonyPatch(typeof(FarmTopUIController), "Initialize")]
@@ -85,7 +85,7 @@ namespace kzModUtils
 		 */
 		public static void CloseDialog()
 		{
-			// SingletonMonoBehaviour<UIManager>.Instance.Pop(null); 
+			// SingletonMonoBehaviour<UIManager>.Instance.Pop(null);
 			SingletonMonoBehaviour<UIManager>.Instance.PopExceptForBottom(null);
 		}
 	}

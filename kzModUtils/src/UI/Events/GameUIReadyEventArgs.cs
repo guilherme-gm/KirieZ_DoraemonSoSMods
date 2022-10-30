@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace kzModUtils.Events
+namespace kzModUtils.UI.Events
 {
 	public class GameUIReadyEventArgs : EventArgs
 	{

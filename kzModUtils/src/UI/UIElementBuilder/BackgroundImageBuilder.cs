@@ -1,4 +1,4 @@
-namespace kzModUtils.UIElementBuilder
+namespace kzModUtils.UI.UIElementBuilder
 {
 	public class BackgroundImageBuilder : BaseUIElementBuilder<UnityEngine.UI.Image, BackgroundImageBuilder>
 	{
