@@ -45,12 +45,12 @@ namespace kzModUtils.UI.UIElementBuilder
 
 		public BuilderClass SetCanvasAsParent()
 		{
-			if (UIModule.CommonUICanvas == null)
+			if (UIUtils.CommonUICanvas == null)
 			{
 				throw new Exception("Can't create element without parent before Common Canvas is created.");
 			}
 
-			Parent = UIModule.CommonUICanvas.transform;
+			Parent = UIUtils.CommonUICanvas.transform;
 			return this as BuilderClass;
 		}
 
