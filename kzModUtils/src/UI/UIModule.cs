@@ -1,6 +1,5 @@
 using HarmonyLib;
 using kzModUtils.UI.Events;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -8,34 +7,14 @@ using UnityEngine;
 namespace kzModUtils.UI
 {
 	/**
-	 * Module to take care of UI-related tasks
+	 * Module to take care of UI-related tasks.
+	 * This class is not meant to be accessed by lib consumers, it works in doing the background work.
 	 */
 	public class UIModule
 	{
 		private static AssetBundle Assets;
 
-		/**
-		 * Event triggered when the Game UI is ready to receive UI elements.
-		 *
-		 * To be used by mods that want to extend the game's UI
-		 */
-		public static event EventHandler<GameUIReadyEventArgs> OnGameUIReady;
-
-		/**
-		 * Game's main UI Canvas.
-		 * Usually you want to add your UI elements as a child of this canvas. Specially if it is an element that is permanently on screen.
-		 */
-		public static GameObject CommonUICanvas = null;
-
-		/**
-		 * Event Log controller.
-		 * Event Log is responsible for displaying quick status updates in the bottom left part of the screen,
-		 * such as item obtained or stamina info.
-		 */
-		public static EventLogUIPartController EventLog = null;
-
 		internal static Dictionary<UIElementType, GameObject> UIPrefabs = new Dictionary<UIElementType, GameObject>();
-
 
 		public static void Initialize()
 		{
@@ -72,21 +51,11 @@ namespace kzModUtils.UI
 		{
 			if (__instance.transform.parent != null)
 			{
-				CommonUICanvas = __instance.transform.parent.gameObject;
+				UIUtils.CommonUICanvas = __instance.transform.parent.gameObject;
 			}
 
-			OnGameUIReady?.Invoke(null, new GameUIReadyEventArgs(CommonUICanvas, __instance));
-
-			EventLog = ___mEventLog;
-		}
-
-		/**
-		 * Closes any dialog that is currently open.
-		 */
-		public static void CloseDialog()
-		{
-			// SingletonMonoBehaviour<UIManager>.Instance.Pop(null);
-			SingletonMonoBehaviour<UIManager>.Instance.PopExceptForBottom(null);
+			UIUtils.EventLog = ___mEventLog;
+			UIUtils.FireGameUIReady(new GameUIReadyEventArgs(UIUtils.CommonUICanvas, __instance));
 		}
 	}
 }
