@@ -2,8 +2,9 @@ using BepInEx;
 using HarmonyLib;
 using UnityEngine;
 using kzModUtils;
-using kzModUtils.Events;
-using kzModUtils.UIElementBuilder;
+using kzModUtils.UI;
+using kzModUtils.UI.Events;
+using kzModUtils.UI.Elements;
 
 namespace StaminaBar
 {
@@ -20,7 +21,7 @@ namespace StaminaBar
 
 			Harmony.CreateAndPatchAll(typeof(Plugin));
 
-			UIModule.OnGameUIReady += (object sender, GameUIReadyEventArgs args) =>
+			UIUtils.OnGameUIReady += (object sender, GameUIReadyEventArgs args) =>
 			{
 				var uiObj = (new BackgroundImageBuilder())
 					.SetCanvasAsParent()
