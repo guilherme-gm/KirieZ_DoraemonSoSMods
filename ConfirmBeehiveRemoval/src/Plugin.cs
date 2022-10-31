@@ -1,7 +1,7 @@
 using BepInEx;
 using Define;
 using HarmonyLib;
-using kzModUtils;
+using kzModUtils.UI;
 using System;
 
 namespace ConfirmBeehiveRemoval
@@ -46,8 +46,8 @@ namespace ConfirmBeehiveRemoval
 
 				___mExecuteCallback(___mFloorId);
 
-				UIModule.CloseDialog();
-			}, new System.Action(UIModule.CloseDialog), null);
+				UIUtils.CloseDialog();
+			}, new System.Action(UIUtils.CloseDialog), null);
 			SingletonMonoBehaviour<UIManager>.Instance.Open(UI.TypeEnum.TextDialog, arg);
 			response = new ResponseModel(UI.TypeEnum.TextDialog, arg);
 
