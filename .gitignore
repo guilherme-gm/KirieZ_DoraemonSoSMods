@@ -349,6 +349,8 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+# Build
+build/
 
 # Lib files (that are not in Nuget and should not be shipped)
 libs/
