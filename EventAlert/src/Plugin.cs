@@ -2,6 +2,8 @@ using BepInEx;
 using HarmonyLib;
 using kzModUtils;
 using kzModUtils.Events;
+using kzModUtils.Resource;
+using kzModUtils.UI;
 
 namespace EventAlert
 {
@@ -37,7 +39,7 @@ namespace EventAlert
 			if (TodaysEvent.StartTime.Hour != e.Time.Hour || TodaysEvent.StartTime.Minute != e.Time.Minute)
 				return;
 
-			UIModule.EventLog.AddLogRequest($"{ResourceModule.GetText(TodaysEvent.NameId)} started.", -1);
+			UIUtils.EventLog.AddLogRequest($"{ResourceUtils.GetText(TodaysEvent.NameId)} started.", -1);
 		}
 	}
 }
