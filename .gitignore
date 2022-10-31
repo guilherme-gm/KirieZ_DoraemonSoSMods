@@ -354,10 +354,3 @@ build/
 
 # Lib files (that are not in Nuget and should not be shipped)
 libs/
-AdjustToolStamina/libs
-ConfirmBeehiveRemoval/libs
-StaminaBar/libs
-DumpMaster/libs
-EventAlert/libs
-MapShopTimes/libs
-ShowItemPrice/libs

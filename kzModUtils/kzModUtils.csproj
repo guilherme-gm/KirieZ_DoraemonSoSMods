@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-	  <OutputPath>..\build\$(Configuration)\</OutputPath>
+		<OutputPath>..\build\$(Configuration)\</OutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -9,6 +9,10 @@
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<OutputPath>..\build\$(Configuration)\</OutputPath>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
 		<PackageReference Include="BepInEx.Core" Version="5.*" />
@@ -21,11 +25,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\kzModUtils\kzModUtils.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Reference Include="Assembly-CSharp">
-			<HintPath>.\libs\Assembly-CSharp.dll</HintPath>
+			<HintPath>..\libs\Assembly-CSharp.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine.UI">
-			<HintPath>.\libs\UnityEngine.UI.dll</HintPath>
+			<HintPath>..\libs\UnityEngine.UI.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>
