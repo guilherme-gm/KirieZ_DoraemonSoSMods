@@ -1,9 +1,11 @@
 using BepInEx;
 using HarmonyLib;
-using kzModUtils;
 using UnityEngine;
 using System.Text;
-using kzModUtils.UIElementBuilder;
+using kzModUtils.UI;
+using kzModUtils.UI.Events;
+using kzModUtils.UI.Elements;
+using kzModUtils.Resource;
 
 namespace MapShopTimes
 {
@@ -106,10 +108,10 @@ namespace MapShopTimes
 
 			Harmony.CreateAndPatchAll(typeof(Plugin));
 
-			UIModule.OnGameUIReady += UIModule_OnGameUIReady;
+			UIUtils.OnGameUIReady += UIModule_OnGameUIReady;
 		}
 
-		private void UIModule_OnGameUIReady(object sender, kzModUtils.Events.GameUIReadyEventArgs e)
+		private void UIModule_OnGameUIReady(object sender, GameUIReadyEventArgs e)
 		{
 			StringBuilder sb = new StringBuilder();
 			foreach (var shop in this.Times)
@@ -192,7 +194,7 @@ namespace MapShopTimes
 
 			__result = new string[] {
 				"Show/Hide Shop Times",
-				ResourceModule.GetText(TextID.Common.TEXT_CLOSE),
+				ResourceUtils.GetText(TextID.Common.TEXT_CLOSE),
 			};
 		}
 
@@ -211,7 +213,7 @@ namespace MapShopTimes
 			}
 			else
 			{
-				ShopTimeMenu = GameObject.Instantiate(ShopTimeMenuPrefab, UIModule.CommonUICanvas.transform);
+				ShopTimeMenu = GameObject.Instantiate(ShopTimeMenuPrefab, UIUtils.CommonUICanvas.transform);
 				ShopTimeMenu.SetActive(true);
 			}
 		}
