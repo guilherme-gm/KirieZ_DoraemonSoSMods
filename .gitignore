@@ -351,8 +351,8 @@ MigrationBackup/
 
 
 # Lib files (that are not in Nuget and should not be shipped)
+libs/
 AdjustToolStamina/libs
-kzModUtils/libs
 ConfirmBeehiveRemoval/libs
 StaminaBar/libs
 DumpMaster/libs
