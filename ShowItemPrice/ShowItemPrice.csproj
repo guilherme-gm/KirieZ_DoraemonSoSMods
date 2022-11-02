@@ -4,7 +4,7 @@
 		<TargetFramework>net35</TargetFramework>
 		<AssemblyName>ShowItemPrice</AssemblyName>
 		<Description>Displays item sell price on description</Description>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
