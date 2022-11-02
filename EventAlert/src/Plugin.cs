@@ -27,14 +27,27 @@ namespace EventAlert
 
 		private static void ModUtilities_OnTimeChange(object sender, TimeChangeEventArgs e)
 		{
+			bool isDayChange = false;
 			if (e.Time.Day != LastLoadedDay)
 			{
 				TodaysEvent = MasterManager.Instance.CarnivalMaster.GetCarnivalData(e.Time.Season, e.Time.Day);
 				LastLoadedDay = e.Time.Day;
+				isDayChange = true;
 			}
 
 			if (TodaysEvent == null)
 				return;
+
+			if (TodaysEvent.Type == Define.Carnival.TypeEnum.None)
+				return;
+
+			if (TodaysEvent.StartTime == null)
+			{
+				if (isDayChange)
+					UIUtils.EventLog.AddLogRequest($"{ResourceUtils.GetText(TodaysEvent.NameId)} started.", -1);
+
+				return;
+			}
 
 			if (TodaysEvent.StartTime.Hour != e.Time.Hour || TodaysEvent.StartTime.Minute != e.Time.Minute)
 				return;
