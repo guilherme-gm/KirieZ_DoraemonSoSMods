@@ -10,7 +10,7 @@ You must have BepInEx v5 installed on your game.
 - [Download BepInEx v5](https://github.com/BepInEx/BepInEx/releases)
 - [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 
-After having it ready, download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases?q=Adjust+Tool+Stamina&expanded=true) page and add it to your BepInEx's plugins folder.
+After having it ready, download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page and add it to your BepInEx's plugins folder.
 
 
 ## Building

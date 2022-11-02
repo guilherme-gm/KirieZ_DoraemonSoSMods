@@ -8,7 +8,7 @@ You must have BepInEx v5 and kz Mod Utils installed on your game.
 	- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 - [kz Mod Utils page](../kzModUtils/)
 
-After having both installed, download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases?q=Event+Alert&expanded=true) page and add it to your BepInEx's plugins folder.
+After having both installed, download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page and add it to your BepInEx's plugins folder.
 
 
 ## Building
