@@ -4,19 +4,32 @@ using System;
 
 namespace kzModUtils
 {
-	public class TimeModule
+	public class TimeModule: IModule
 	{
 		/**
 		 * Called at every time change.
 		 */
 		public static event EventHandler<TimeChangeEventArgs> OnTimeChange;
 
-		public static void Initialize()
+		private static TimeModule mInstance;
+
+		internal static TimeModule Instance
+		{
+			get {
+				if (mInstance == null)
+					mInstance = new TimeModule();
+
+				return mInstance;
+			}
+			private set {}
+		}
+
+		public void Initialize()
 		{
 			Harmony.CreateAndPatchAll(typeof(TimeModule));
 		}
 
-		public static void Teardown()
+		public void Teardown()
 		{
 
 		}

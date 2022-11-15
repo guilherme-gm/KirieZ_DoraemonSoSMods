@@ -6,15 +6,28 @@ namespace kzModUtils.UI
 	 * Module to take care of UI-related tasks.
 	 * This class is not meant to be accessed by lib consumers, it works in doing the background work.
 	 */
-	internal static class UIModule
+	internal class UIModule: IModule
 	{
-		internal static void Initialize()
+		private static UIModule mInstance;
+
+		internal static UIModule Instance
+		{
+			get {
+				if (mInstance == null)
+					mInstance = new UIModule();
+
+				return mInstance;
+			}
+			private set {}
+		}
+
+		public void Initialize()
 		{
 			Harmony.CreateAndPatchAll(typeof(UIModule));
 			UIAssets.Initialize();
 		}
 
-		internal static void Teardown()
+		public void Teardown()
 		{
 			UIAssets.Teardown();
 		}
