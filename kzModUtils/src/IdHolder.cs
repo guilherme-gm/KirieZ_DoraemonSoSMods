@@ -1,6 +1,6 @@
 #nullable enable
 
-public class IdHolder<T> where T: IIdentifiableConfig
+public class IdHolder<T> where T: class, IIdentifiableConfig
 {
 	public int Id {
 		get {

@@ -16,6 +16,7 @@ namespace kzModUtils
 			TextData.TextDataModule.Instance,
 			ItemData.ItemModule.Instance,
 			EventData.EventDataModule.Instance,
+			ShopData.ShopDataModule.Instance,
 		};
 
 		private ICollectionModule[] CollectionModules = new ICollectionModule[]
@@ -23,6 +24,7 @@ namespace kzModUtils
 			TextData.TextDataModule.Instance,
 			ItemData.ItemModule.Instance, // Requires text
 			EventData.EventDataModule.Instance, // Requires text
+			ShopData.ShopDataModule.Instance, // Requires item / event
 		};
 
 		private void Awake()
