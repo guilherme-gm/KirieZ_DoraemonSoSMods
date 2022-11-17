@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using kzModUtils.GameSave;
 
+#nullable enable
+
 namespace kzModUtils
 {
 	internal class ModDataSaveHandler : ISaveDataHandler
@@ -15,16 +17,20 @@ namespace kzModUtils
 			}
 		}
 
-		public event EventHandler<LoadEventArgs> OnLoad;
+		public event EventHandler<LoadEventArgs>? OnLoad;
 
 		public string GetSuffix()
 		{
 			return "kzModUtils";
 		}
 
-		public void LoadGameData(byte[] buffer)
+		public void LoadGameData(byte[]? buffer)
 		{
 			var state = new ModDataSavedState();
+			if (buffer == null) {
+				this.OnLoad?.Invoke(this, new LoadEventArgs(state));
+				return;
+			}
 
 			using (var stream = new MemoryStream(buffer))
 			{

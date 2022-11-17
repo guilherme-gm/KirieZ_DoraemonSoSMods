@@ -48,6 +48,7 @@ namespace kzModUtils
 
 			var saveHandler = new ModDataSaveHandler();
 			saveHandler.OnLoad += this.OnModStateLoaded;
+			GameSave.GameSaveHelper.RegisterSaveHandler(saveHandler);
 		}
 
 		private void Destroy()
