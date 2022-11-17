@@ -65,7 +65,7 @@ namespace kzModUtils.ItemData
 			Harmony.CreateAndPatchAll(typeof(ItemModule));
 		}
 
-		public void Setup()
+		public void Setup(ModDataSavedState state = null)
 		{
 			foreach (var config in this.CustomItemConfigs)
 			{

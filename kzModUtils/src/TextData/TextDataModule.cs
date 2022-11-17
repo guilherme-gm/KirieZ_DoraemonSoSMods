@@ -50,7 +50,7 @@ namespace kzModUtils.TextData
 			TextDataModule.Instance.TextCollection = ___mTexts;
 		}
 
-		public void Setup()
+		public void Setup(ModDataSavedState state = null)
 		{
 			foreach (var item in TextToRegister)
 			{

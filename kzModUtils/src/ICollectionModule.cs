@@ -1,4 +1,6 @@
+using kzModUtils;
+
 internal interface ICollectionModule
 {
-	void Setup();
+	void Setup(ModDataSavedState state = null);
 }

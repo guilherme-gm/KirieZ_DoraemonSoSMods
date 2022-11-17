@@ -47,7 +47,7 @@ namespace kzModUtils.EventData
 			EventDataModule.Instance.Events = ___mEvents;
 		}
 
-		public void Setup()
+		public void Setup(ModDataSavedState state = null)
 		{
 			foreach (var item in this.EventConfigs)
 			{

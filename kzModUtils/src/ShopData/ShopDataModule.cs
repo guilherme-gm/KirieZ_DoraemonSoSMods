@@ -114,7 +114,7 @@ namespace kzModUtils.ShopData
 			}
 		}
 
-		public void Setup()
+		public void Setup(ModDataSavedState state = null)
 		{
 			foreach (var shopConfig in ShopConfigs)
 			{

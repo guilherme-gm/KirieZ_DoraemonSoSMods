@@ -28,6 +28,12 @@ namespace kzModUtils
 			ShopData.ShopDataModule.Instance, // Requires item / event
 		};
 
+		private void OnModStateLoaded(object sender, ModDataSaveHandler.LoadEventArgs args)
+		{
+			foreach (var mod in Instance.CollectionModules)
+				mod.Setup(args.State);
+		}
+
 		private void Awake()
 		{
 			Plugin.Instance = this;
@@ -39,6 +45,9 @@ namespace kzModUtils
 
 			foreach (var mod in Modules)
 				mod.Initialize();
+
+			var saveHandler = new ModDataSaveHandler();
+			saveHandler.OnLoad += this.OnModStateLoaded;
 		}
 
 		private void Destroy()
