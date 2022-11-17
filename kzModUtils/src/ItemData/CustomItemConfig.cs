@@ -1,8 +1,10 @@
 namespace kzModUtils.ItemData
 {
-	public class CustomItemConfig
+	public class CustomItemConfig: IIdentifiableConfig
 	{
 		public string ModItemID { get; set; }
+
+		internal int ItemId { get; set; }
 
 		public string Name { get; set; }
 
@@ -50,6 +52,11 @@ namespace kzModUtils.ItemData
 				mResourceId = 2130, // FIXME: What is exactly this used for?
 				mSpriteId = 1002130, // 1,
 			});
+		}
+
+		public int GetId()
+		{
+			return this.ItemId;
 		}
 	}
 }

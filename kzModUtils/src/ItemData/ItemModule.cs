@@ -90,6 +90,7 @@ namespace kzModUtils.ItemData
 				this.Items.Add(itemId, item);
 				this.ItemIdMap.Add(config.ModItemID, item);
 
+				config.ItemId = itemId;
 				config.Callback?.Invoke(item);
 			}
 		}
