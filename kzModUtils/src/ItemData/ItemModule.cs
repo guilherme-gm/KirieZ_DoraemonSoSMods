@@ -33,6 +33,7 @@ namespace kzModUtils.ItemData
 		private static Dictionary<Define.Item.CategoryEnum, int[]> GetFreeIdPool()
 		{
 			// List manually generated based on existing items and some range for safety
+			// Items have categories based on their ID prefix, so we have separated pools for each category.
 			return new Dictionary<Define.Item.CategoryEnum, int[]>()
 			{
 				{ Define.Item.CategoryEnum.Tool,               new int[] { 10_03200, 10_99999 } },
@@ -54,8 +55,6 @@ namespace kzModUtils.ItemData
 			};
 		}
 
-		internal Dictionary<string, CustomItem> ItemIdMap = new Dictionary<string, CustomItem>();
-
 		internal List<CustomItemConfig> CustomItemConfigs = new List<CustomItemConfig>();
 
 		private Dictionary<Define.Item.CategoryEnum, int[]> IdPool = GetFreeIdPool();
@@ -65,30 +64,45 @@ namespace kzModUtils.ItemData
 			Harmony.CreateAndPatchAll(typeof(ItemModule));
 		}
 
+		private void UnregisterAll()
+		{
+			foreach (var item in this.CustomItemConfigs)
+				this.Items.Remove(item.GetId());
+		}
+
 		public void Setup(ModDataSavedState state = null)
 		{
+			this.UnregisterAll();
+
+			var reservedIds = new HashSet<int>();
+			foreach (var item in this.CustomItemConfigs)
+				reservedIds.Add(item.GetId());
+
+			this.IdPool = GetFreeIdPool();
 			foreach (var config in this.CustomItemConfigs)
 			{
-				var idRange = this.IdPool.GetValue(config.Category, null);
-				if (idRange == null) {
-					Console.WriteLine($"Could not find ID Pool for item \"{config.ModItemID}\". Skipping item.");
-					continue;
-				}
+				int itemId;
+				if (state == null || state.Items.TryGetValue(config.ModItemID, out itemId) == false) {
+					var idRange = this.IdPool.GetValue(config.Category, null);
+					if (idRange == null) {
+						Console.WriteLine($"Could not find ID Pool for item \"{config.ModItemID}\". Skipping item.");
+						continue;
+					}
 
-				while (idRange[0] <= idRange[1] && Items.ContainsKey(idRange[0]))
+					while (idRange[0] <= idRange[1] && Items.ContainsKey(idRange[0]))
+						idRange[0]++;
+
+					if (idRange[0] > idRange[1]) {
+						Console.WriteLine($"ID Pool for \"{config.Category}\" is full, no more custom items of that type can be added. Skipping item \"{config.ModItemID}\".");
+						continue;
+					}
+
+					itemId = idRange[0];
 					idRange[0]++;
-
-				if (idRange[0] > idRange[1]) {
-					Console.WriteLine($"ID Pool for \"{config.Category}\" is full, no more custom items of that type can be added. Skipping item \"{config.ModItemID}\".");
-					continue;
 				}
-
-				var itemId = idRange[0];
-				idRange[0]++;
 
 				var item = config.ToMasterModel(itemId);
 				this.Items.Add(itemId, item);
-				this.ItemIdMap.Add(config.ModItemID, item);
 
 				config.ItemId = itemId;
 				config.Callback?.Invoke(item);
