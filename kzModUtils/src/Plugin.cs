@@ -17,6 +17,7 @@ namespace kzModUtils
 			ItemData.ItemModule.Instance,
 			EventData.EventDataModule.Instance,
 			ShopData.ShopDataModule.Instance,
+			GameSave.GameSaveModule.Instance,
 		};
 
 		private ICollectionModule[] CollectionModules = new ICollectionModule[]
