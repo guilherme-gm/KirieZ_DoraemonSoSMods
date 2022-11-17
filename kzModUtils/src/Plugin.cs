@@ -15,12 +15,14 @@ namespace kzModUtils
 			UIModule.Instance,
 			TextData.TextDataModule.Instance,
 			ItemData.ItemModule.Instance,
+			EventData.EventDataModule.Instance,
 		};
 
 		private ICollectionModule[] CollectionModules = new ICollectionModule[]
 		{
 			TextData.TextDataModule.Instance,
-			ItemData.ItemModule.Instance,
+			ItemData.ItemModule.Instance, // Requires text
+			EventData.EventDataModule.Instance, // Requires text
 		};
 
 		private void Awake()
