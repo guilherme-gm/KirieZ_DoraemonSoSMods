@@ -4,7 +4,7 @@ using kzModUtils.ItemData;
 
 namespace kzModUtils.EventData
 {
-	public class EventConfig
+	public class EventConfig: IIdentifiableConfig
 	{
 		public string EventModId { get; set; }
 
@@ -29,7 +29,7 @@ namespace kzModUtils.EventData
 				mId = eventId,
 				mTitleId = TitleId,
 				mHaveItemId = this.RequiredItem == null ? -1 : this.RequiredItem.Id,
-				mIsUnManaged = false,
+				mIsUnManaged = true,
 				mIsRecollection = false,
 				mGroupId = -1,
 				mEventType = 0,
@@ -67,6 +67,11 @@ namespace kzModUtils.EventData
 				mAfterEventTime_Hour = -1,
 				mAfterEventTime_Minutes = -1,
 			});
+		}
+
+		public int GetId()
+		{
+			return this.EventId;
 		}
 	}
 }
