@@ -4,7 +4,7 @@
 		<TargetFramework>net35</TargetFramework>
 		<AssemblyName>kzModUtils</AssemblyName>
 		<Description>kz Modding Utilities -- Set of helpers for modding Doraemon Story of Seasons</Description>
-		<Version>0.4.0</Version>
+		<Version>0.5.0</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
