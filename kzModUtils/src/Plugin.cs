@@ -1,6 +1,8 @@
 using BepInEx;
 using HarmonyLib;
 using kzModUtils.UI;
+using System;
+using System.Collections.Generic;
 
 namespace kzModUtils
 {
@@ -28,10 +30,53 @@ namespace kzModUtils
 			ShopData.ShopDataModule.Instance, // Requires item / event
 		};
 
+		private void RemoveFromInventory(ItemSlotModel inventory, int itemId)
+		{
+			for (var slotIdx = 0; slotIdx < inventory.Slots.Length; slotIdx++)
+			{
+				var slot = inventory.Slots[slotIdx];
+
+				// Don' t use other options because they check for Master, which won't exist if item doesn't exists.
+				if (slot?.Id == itemId)
+					inventory.ReduceSlotItem(slotIdx, slot.Count);
+			}
+		}
+
 		private void OnModStateLoaded(object sender, ModDataSaveHandler.LoadEventArgs args)
 		{
 			foreach (var mod in Instance.CollectionModules)
 				mod.Setup(args.State);
+
+			var loadedEvents = new List<string>();
+			foreach (var item in args.State.Events)
+				loadedEvents.Add(item.Key);
+
+			foreach (var item in EventData.EventDataModule.Instance.EventConfigs)
+				loadedEvents.Remove(item.EventModId);
+
+			foreach (var oldEvent in loadedEvents) {
+				Console.WriteLine($"Event \"{oldEvent}\" (ID: {args.State.Events[oldEvent]}) was removed from the game DB but found on your save. Forcing its removal.");
+				SingletonMonoBehaviour<UserManager>.Instance.User.FinishedEvent.Unregister(args.State.Events[oldEvent]);
+			}
+
+			var loadedItems = new List<string>();
+			foreach (var item in args.State.Items)
+				loadedItems.Add(item.Key);
+
+			foreach (var item in ItemData.ItemModule.Instance.CustomItemConfigs)
+				loadedItems.Remove(item.ModItemID);
+
+			foreach (var oldItem in loadedItems)
+			{
+				var itemId = args.State.Items[oldItem];
+				Console.WriteLine($"Item \"{oldItem}\" (ID: {itemId}) was removed from the game DB but found on your save. Forcing its removal.");
+				RemoveFromInventory(SingletonMonoBehaviour<UserManager>.Instance.User.Inventory, itemId);
+				RemoveFromInventory(SingletonMonoBehaviour<UserManager>.Instance.User.Refrigerator, itemId);
+				RemoveFromInventory(SingletonMonoBehaviour<UserManager>.Instance.User.Chest, itemId);
+				RemoveFromInventory(SingletonMonoBehaviour<UserManager>.Instance.User.MaterialStorage, itemId);
+				RemoveFromInventory(SingletonMonoBehaviour<UserManager>.Instance.User.ShippingBox, itemId);
+				RemoveFromInventory(SingletonMonoBehaviour<UserManager>.Instance.User.ImportantItemSlots, itemId);
+			}
 		}
 
 		private void Awake()
