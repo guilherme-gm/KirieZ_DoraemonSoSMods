@@ -11,12 +11,30 @@ namespace AlternativeFurnitureRotation
 	{
 		internal static float Rotation = -90f;
 
+		private static string AssetPath = (Application.platform == RuntimePlatform.OSXPlayer
+				? $"{Application.dataPath}/../../BepInEx/plugins"
+				: (
+					Application.platform == RuntimePlatform.WindowsPlayer
+						? $"{Application.dataPath}/../BepInEx/plugins"
+						: Application.dataPath
+				)
+			);
+
+		private AssetBundle Assets;
+
+		private static GameObject ArrowPrefab;
+
+		private static GameObject ArrowObject;
+
 		private void Awake()
 		{
 			// Plugin startup logic
 			Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
 			Harmony.CreateAndPatchAll(typeof(Plugin));
+
+			Assets = AssetBundle.LoadFromFile($"{AssetPath}/AlternativeFurnitureRotation/DirectionArrow");
+			ArrowPrefab = Assets.LoadAsset<GameObject>("DirectionArrow");
 		}
 
 		[HarmonyPatch(typeof(FloorChipController), "Initialize")]
@@ -162,6 +180,51 @@ namespace AlternativeFurnitureRotation
 			}
 
 			__result = cellsToFill.ToArray();
+		}
+
+		[HarmonyPatch(typeof(FloorController), "UpdateFurnitureGhost")]
+		[HarmonyPostfix]
+		private static void OnGhostCreated(
+			GameObject ___mFurnitureGhost,
+			int ___mRangeMarkRotNum
+		)
+		{
+			if (___mFurnitureGhost == null) {
+				if (ArrowObject != null) {
+					GameObject.Destroy(ArrowObject);
+					ArrowObject = null;
+				}
+				return;
+			}
+
+			if (ArrowObject == null)
+				ArrowObject = GameObject.Instantiate(ArrowPrefab);
+
+			ArrowObject.transform.position = ___mFurnitureGhost.transform.position;
+			ArrowObject.transform.position += new Vector3(0, 3f, 0);
+
+			ArrowObject.transform.rotation = Quaternion.Euler(0f, (___mRangeMarkRotNum - 1) * 90f, 0f);
+		}
+
+		[HarmonyPatch(typeof(FloorController), "DestroyFurnitureGhost")]
+		[HarmonyPostfix]
+		private static void OnGhostDestroyed(GameObject ___mFurnitureGhost)
+		{
+			if (ArrowObject != null) {
+				GameObject.Destroy(ArrowObject);
+				ArrowObject = null;
+			}
+		}
+
+
+		[HarmonyPatch(typeof(FloorController), "PlaceFurniture")]
+		[HarmonyPostfix]
+		private static void OnFurniturePlaced(bool __result)
+		{
+			if (__result && ArrowObject != null) {
+				GameObject.Destroy(ArrowObject);
+				ArrowObject = null;
+			}
 		}
 	}
 }
