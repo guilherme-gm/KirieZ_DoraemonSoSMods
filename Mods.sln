@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapShopTimes", "MapShopTime
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fishbook", "Fishbook\Fishbook.csproj", "{525902B7-9BE0-4E03-8FF6-01CDAB31550C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlternativeFurnitureRotation", "AlternativeFurnitureRotation\AlternativeFurnitureRotation.csproj", "{D7C8B5DB-8B11-4C57-A64D-03CEA12A10A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{525902B7-9BE0-4E03-8FF6-01CDAB31550C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{525902B7-9BE0-4E03-8FF6-01CDAB31550C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{525902B7-9BE0-4E03-8FF6-01CDAB31550C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7C8B5DB-8B11-4C57-A64D-03CEA12A10A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C8B5DB-8B11-4C57-A64D-03CEA12A10A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C8B5DB-8B11-4C57-A64D-03CEA12A10A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C8B5DB-8B11-4C57-A64D-03CEA12A10A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
