@@ -50,7 +50,7 @@ namespace AlternativeFurnitureRotation
 		private static Vector3 AdjustRotation(Vector3 baseVector, FurnitureMasterModel furniture, int playerRotationNum, int furnitureRotationNum)
 		{
 			// @TODO: Is there a way to improve this?
-			// System.Console.WriteLine($"> {playerRotationNum} / {furnitureRotationNum}. SizeX: {furniture.SizeX} . Size Y: {furniture.SizeZ}");
+			System.Console.WriteLine($"> {playerRotationNum} / {furnitureRotationNum}. SizeX: {furniture.SizeX} . Size Z: {furniture.SizeZ}");
 			switch (playerRotationNum)
 			{
 			case 0: // Looking top/left
@@ -58,7 +58,7 @@ namespace AlternativeFurnitureRotation
 				{
 				case 1:
 					baseVector.x -= (furniture.SizeZ - 1);
-					baseVector.z +=  (int)(furniture.SizeX / 2);
+					baseVector.z +=  (furniture.SizeX - 1);
 					break;
 				case 2:
 					baseVector.z += (furniture.SizeZ - 1);
