@@ -9,7 +9,7 @@ namespace AlternativeFurnitureRotation
 	[BepInPlugin("io.github.guilherme-gm.DoraemonSoSMods.alternativeFurnitureRotation", "Alternative Furniture Rotation", PluginInfo.PLUGIN_VERSION)]
 	public class Plugin : BaseUnityPlugin
 	{
-		public static float Rotation = -90f;
+		internal static float Rotation = -90f;
 
 		private void Awake()
 		{
@@ -31,23 +31,25 @@ namespace AlternativeFurnitureRotation
 
 		private static Vector3 AdjustRotation(Vector3 baseVector, FurnitureMasterModel furniture, int playerRotationNum, int furnitureRotationNum)
 		{
+			// @TODO: Is there a way to improve this?
+			// System.Console.WriteLine($"> {playerRotationNum} / {furnitureRotationNum}. SizeX: {furniture.SizeX} . Size Y: {furniture.SizeZ}");
 			switch (playerRotationNum)
 			{
-			case 0:
+			case 0: // Looking top/left
 				switch (furnitureRotationNum)
 				{
 				case 1:
-					baseVector.x -= (furniture.SizeX < 3) ? (furniture.SizeX - 1) : furniture.SizeX;
-					baseVector.z +=  (int)(furniture.SizeZ / 2);
+					baseVector.x -= (furniture.SizeZ - 1);
+					baseVector.z +=  (int)(furniture.SizeX / 2);
 					break;
 				case 2:
-					baseVector.z += furniture.SizeZ - 1;
-					baseVector.x += furniture.SizeX - 1;
+					baseVector.z += (furniture.SizeZ - 1);
+					baseVector.x += (furniture.SizeX - 1);
 					break;
 				}
 				break;
 
-			case 1:
+			case 1: // looking top/right
 				switch (furnitureRotationNum)
 				{
 				case 1:
@@ -55,17 +57,17 @@ namespace AlternativeFurnitureRotation
 					break;
 
 				case 2:
-					baseVector.z += furniture.SizeZ - 1;
-					baseVector.x += furniture.SizeX - 1;
+					baseVector.z += (furniture.SizeZ - 1);
+					baseVector.x += (furniture.SizeX - 1);
 					break;
 
 				case 3:
-					baseVector.x += (furniture.SizeX < 3) ? (furniture.SizeX - 1) : furniture.SizeX;
+					baseVector.x += furniture.SizeZ - 1;
 					break;
 				}
 				break;
 
-			case 2:
+			case 2: // looking bottom/right
 				switch (furnitureRotationNum)
 				{
 				case 0:
@@ -73,11 +75,11 @@ namespace AlternativeFurnitureRotation
 					break;
 
 				case 1:
-					baseVector.x -= (furniture.SizeX < 3) ? (furniture.SizeX - 1) : furniture.SizeX;
+					baseVector.x -= (furniture.SizeZ - 1);
 					break;
 
 				case 2:
-					baseVector.x += furniture.SizeX - 1;
+					baseVector.x += (furniture.SizeX - 1);
 					break;
 
 				case 3:
@@ -86,7 +88,7 @@ namespace AlternativeFurnitureRotation
 				}
 				break;
 
-			case 3:
+			case 3: // looking bottom/left
 				switch (furnitureRotationNum)
 				{
 				case 0:
@@ -94,8 +96,8 @@ namespace AlternativeFurnitureRotation
 					break;
 
 				case 1:
-					baseVector.x -= (furniture.SizeX < 3) ? (furniture.SizeX - 1) : furniture.SizeX;
-					baseVector.z += (int)(furniture.SizeZ / 2);
+					baseVector.x -= (furniture.SizeZ - 1);
+					baseVector.z += (furniture.SizeX - 1);
 					break;
 
 				case 2:
@@ -103,7 +105,7 @@ namespace AlternativeFurnitureRotation
 						var dx = (int) ((furniture.SizeX / 2) - 1);
 						if (dx < 0)
 							dx = 0;
-						baseVector.z += furniture.SizeZ - 1;
+						baseVector.z += (furniture.SizeZ - 1);
 						baseVector.x -= dx;
 					}
 					break;
