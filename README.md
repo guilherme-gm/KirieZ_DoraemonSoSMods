@@ -15,6 +15,19 @@ Makes every tool that consumes stamina always use 1, whatever the charge level i
 
 This aims at providing a better progression around tools, as you usually get better tools but still consumes the same amount of stamina as if you were using level 1.
 
+### Alternative Furniture Rotation
+Changes how furniture placement works to provide a different rotation system.
+1. It doesn't force the rotation to the character direction;
+2. The objects have a different pivot now;
+3. Adds a "Rotate" button so you can try different positioning from the same spot;
+4. Adds a directional arrow to help determining direction of objects where direct matters (e.g.: Bed).
+
+I won't call it as "better" because it is also not that fluid, but it is an alternative way that gives a bit more control / less side effects.
+
+**Note:** This mod will probably conflict with other mods touch furniture placement, because it replaces the main rotation method.
+
+![Alterative Furniture Rotation](./docs/modImages/AlternativeFurnitureRotation.gif)
+
 ### Confirm Beehive Removal
 Adds a dialog to confirm before you remove a placed beehive. This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees.
 
