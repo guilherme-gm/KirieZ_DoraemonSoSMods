@@ -9,7 +9,11 @@ namespace Fishbook.UI
 	{
 		private FishbookWindowUIPartController windowController;
 
-		private ButtonInfoUIPartController mButtonInfo;
+		private ButtonInfoUIPartController closeButtonInfo;
+
+		private ButtonInfoUIPartController seasonButtonInfo;
+
+		private bool toggleSeason;
 
 		private List<FishbookItemUIPartController> ListItems;
 
@@ -22,6 +26,7 @@ namespace Fishbook.UI
 			base.RegisterActionTargetUIPart(this.windowController, true);
 			this.windowController.OnUp += this.FishbookWindow_OnUp;
 			this.windowController.OnDown += this.FishbookWindow_OnDown;
+			this.windowController.OnToggleSeason += this.FishbookWindow_OnToggleSeason;
 
 			var pointInfo = arg as Argument;
 			if (pointInfo == null) {
@@ -56,12 +61,21 @@ namespace Fishbook.UI
 				ListItems.Add(itemController);
 			}
 
-			this.mButtonInfo = (SingletonMonoBehaviour<UIFactory>.Instance.Create(Define.UI.PartTypeEnum.ButtonInfo, this.windowController.InputArea.transform) as ButtonInfoUIPartController);
-			string text = SingletonMonoBehaviour<MasterManager>.Instance.TextMaster.GetText(kzModUtils.Resource.TextID.Common.TEXT_CLOSE);
-			int cancel_BUTTON = UIController.CANCEL_BUTTON;
-			this.mButtonInfo.Initialize();
-			this.mButtonInfo.SetInfo(text, cancel_BUTTON);
-			base.AttachUIParts(this.mButtonInfo);
+			this.closeButtonInfo = (SingletonMonoBehaviour<UIFactory>.Instance.Create(Define.UI.PartTypeEnum.ButtonInfo, this.windowController.InputArea.transform) as ButtonInfoUIPartController);
+			this.closeButtonInfo.Initialize();
+			this.closeButtonInfo.SetInfo(
+				SingletonMonoBehaviour<MasterManager>.Instance.TextMaster.GetText(kzModUtils.Resource.TextID.Common.TEXT_CLOSE),
+				UIController.CANCEL_BUTTON
+			);
+			base.AttachUIParts(this.closeButtonInfo);
+
+			this.seasonButtonInfo = (SingletonMonoBehaviour<UIFactory>.Instance.Create(Define.UI.PartTypeEnum.ButtonInfo, this.windowController.InputArea.transform) as ButtonInfoUIPartController);
+			this.seasonButtonInfo.Initialize();
+			this.seasonButtonInfo.SetInfo(
+				"Current season",
+				UIController.SUBMIT_BUTTON
+			);
+			base.AttachUIParts(this.seasonButtonInfo);
 
 			this.SelectItem(0);
 		}
@@ -85,6 +99,54 @@ namespace Fishbook.UI
 			this.OnFishbookWindowMove(1);
 		}
 
+		private void FishbookWindow_OnToggleSeason(object sender, EventArgs e)
+		{
+			this.toggleSeason = !this.toggleSeason;
+			if (toggleSeason) {
+				FishPointCondtion expectedSeason = 0;
+				switch (SingletonMonoBehaviour<UserManager>.Instance.User.Time.Season)
+				{
+				case Define.Time.SeasonEnum.Spring:
+					expectedSeason = FishPointCondtion.Spring;
+					break;
+
+				case Define.Time.SeasonEnum.Summer:
+					expectedSeason = FishPointCondtion.Summer;
+					break;
+
+				case Define.Time.SeasonEnum.Autumn:
+					expectedSeason = FishPointCondtion.Autumn;
+					break;
+
+				case Define.Time.SeasonEnum.Winter:
+					expectedSeason = FishPointCondtion.Winter;
+					break;
+				}
+
+				foreach (var item in this.ListItems)
+				{
+					if (!item.Fish.AppearsInSeason(expectedSeason))
+						item.gameObject.Deactivate();
+				}
+
+				if (this.ListItems[CurrentIndex]?.gameObject?.activeInHierarchy != true)
+					this.OnFishbookWindowMove(1);
+
+				this.seasonButtonInfo.SetInfo(
+					"All seasons",
+					UIController.SUBMIT_BUTTON
+				);
+			} else {
+				this.seasonButtonInfo.SetInfo(
+					"Current season",
+					UIController.SUBMIT_BUTTON
+				);
+
+				foreach (var item in this.ListItems)
+					item.gameObject.Activate();
+			}
+		}
+
 		private void OnFishbookWindowMove(int delta)
 		{
 			var newIndex = CurrentIndex + delta;
@@ -93,7 +155,17 @@ namespace Fishbook.UI
 			else if (newIndex >= ListItems.Count)
 				newIndex = 0;
 
-			this.SelectItem(newIndex);
+			while (this.ListItems[newIndex]?.gameObject?.activeInHierarchy != true && newIndex != CurrentIndex)
+			{
+				newIndex += delta;
+				if (newIndex < 0)
+					newIndex = ListItems.Count - 1;
+				else if (newIndex >= ListItems.Count)
+					newIndex = 0;
+			}
+
+			if (this.ListItems[newIndex]?.gameObject?.activeInHierarchy == true)
+				this.SelectItem(newIndex);
 		}
 
 		private void SelectItem(int index)

@@ -42,5 +42,16 @@ namespace Fishbook.Entities
 			var targetCondition = Conditions[pointData.Id];
 			targetCondition.UpdateProgress();
 		}
+
+		public bool AppearsInSeason(FishPointCondtion season)
+		{
+			foreach (var item in this.Conditions.Values)
+			{
+				if ((item.CompleteFlag & season) == season)
+					return true;
+			}
+
+			return false;
+		}
 	}
 }

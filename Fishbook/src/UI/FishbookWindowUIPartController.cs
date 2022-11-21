@@ -22,6 +22,8 @@ namespace Fishbook.UI
 
 		public event EventHandler OnDown;
 
+		public event EventHandler OnToggleSeason;
+
 		public void Initialize()
 		{
 			this.InputArea = this.transform
@@ -41,6 +43,12 @@ namespace Fishbook.UI
 		{
 			base.Close();
 			SingletonMonoBehaviour<UIManager>.Instance.Pop(null);
+		}
+
+		public override void SubmitAction()
+		{
+			base.SubmitAction();
+			this.OnToggleSeason?.Invoke(this, null);
 		}
 
 		public override void MoveDownAction()
