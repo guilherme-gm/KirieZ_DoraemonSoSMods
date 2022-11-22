@@ -1,6 +1,7 @@
 using Fishbook.Entities;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Fishbook.UI
 {
@@ -15,6 +16,10 @@ namespace Fishbook.UI
 		private GameObject ScrollView { get; set; }
 
 		private GameObject DetailsObject { get; set; }
+
+		private Text SpotName { get; set; }
+
+		private Text SpotCompletion { get; set; }
 
 		private RectTransform ScrollViewTransform { get; set; }
 
@@ -34,9 +39,30 @@ namespace Fishbook.UI
 				.Find("Scroll View")?.transform?
 				.Find("Viewport")?.transform?
 				.Find("Content")?.gameObject;
+			this.SpotName = this.transform
+				.Find("PointName")?.GetComponent<Text>();
+			this.SpotCompletion = this.transform
+				.Find("Completion")?.transform?
+				.Find("Value")?.GetComponent<Text>();
 			this.ListAreaTransform = this.ListArea.gameObject.GetComponent<RectTransform>();
 			this.ScrollViewTransform = this.ScrollView.transform.GetComponent<RectTransform>();
 			this.DetailsObject = this.transform.Find("Details").gameObject;
+		}
+
+		public void SetPointName(string name)
+		{
+			if (this.SpotName == null)
+				return;
+
+			this.SpotName.text = name;
+		}
+
+		public void SetPointCompletion(float completion)
+		{
+			if (this.SpotCompletion == null)
+				return;
+
+			this.SpotCompletion.text = $"{(int) completion}% discovered";
 		}
 
 		public override void CancelAction()

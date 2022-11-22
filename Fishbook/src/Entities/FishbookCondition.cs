@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -121,6 +122,36 @@ namespace Fishbook.Entities
 				this.ProgressFlag |= FishPointCondtion.Winter;
 				break;
 			}
+		}
+
+		public int GetConditionsCount()
+		{
+			int count = 0;
+			foreach (var flag in Enum.GetValues(typeof(FishPointCondtion)) as FishPointCondtion[])
+			{
+				if (flag == FishPointCondtion.None)
+					continue;
+
+				if ((this.CompleteFlag & flag) == flag)
+					count++;
+			}
+
+			return count;
+		}
+
+		public int GetCompletedConditionsCount()
+		{
+			int count = 0;
+			foreach (var flag in Enum.GetValues(typeof(FishPointCondtion)) as FishPointCondtion[])
+			{
+				if (flag == FishPointCondtion.None)
+					continue;
+
+				if ((this.ProgressFlag & flag) == flag)
+					count++;
+			}
+
+			return count;
 		}
 	}
 }

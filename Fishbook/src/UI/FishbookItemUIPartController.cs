@@ -67,17 +67,18 @@ namespace Fishbook.UI
 						this.FishShadow.text = "Large";
 						break;
 				}
-
-				// TODO:
-				this.Completion.text = "??";
 			}
 			else
 			{
 				this.FishSprite.sprite = null;
 				this.FishName.text = "???";
 				this.FishShadow.text = "???";
-				this.Completion.text = "??";
 			}
+
+			int totalCount = fish.GetConditionsCount();
+			int completeCount = fish.GetCompletedConditionsCount();
+			int percent = (totalCount > 0 ? ((int) (((float) completeCount/totalCount) * 100f)) : 100);
+			this.Completion.text = $"{percent}%";
 
 			this.Fish = fish;
 		}

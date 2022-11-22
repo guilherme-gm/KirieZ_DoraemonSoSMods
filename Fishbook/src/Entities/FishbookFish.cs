@@ -6,6 +6,22 @@ namespace Fishbook.Entities
 	[System.Serializable]
 	internal class FishbookFish
 	{
+		public static readonly Dictionary<int, string> PointNames = new Dictionary<int, string>()
+		{
+			// { 100, "???" },
+			{ 200, "River" },
+			{ 210, "Farm Pond" },
+			{ 220, "River Falls" },
+			{ 300, "Lake" },
+			{ 310, "Swamp" },
+			{ 400, "Beach" },
+			// { 410, "???" },
+			{ 430, "Ocean" },
+			// { 500, "???" },
+			{ 600, "Beluga Cave" },
+			// { 900, "???" },
+		};
+
 		public int PointId { get; set; }
 
 		public int FishId { get; set; }
@@ -52,6 +68,29 @@ namespace Fishbook.Entities
 			}
 
 			return false;
+		}
+
+		public string GetPointName()
+		{
+			return PointNames.GetValue(this.PointId, "???");
+		}
+
+		public int GetConditionsCount()
+		{
+			int count = 0;
+			foreach (var condition in this.Conditions.Values)
+				count += condition.GetConditionsCount();
+
+			return count;
+		}
+
+		public int GetCompletedConditionsCount()
+		{
+			int count = 0;
+			foreach (var condition in this.Conditions.Values)
+				count += condition.GetCompletedConditionsCount();
+
+			return count;
 		}
 	}
 }

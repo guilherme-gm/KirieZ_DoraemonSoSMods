@@ -49,6 +49,8 @@ namespace Fishbook.UI
 			}
 
 			ListItems = new List<FishbookItemUIPartController>();
+			int totalConditions = 0;
+			int discoveredConditions = 0;
 			for (int i = 0; i < fishList.Length; i++)
 			{
 				var fish = fishList[i];
@@ -59,7 +61,16 @@ namespace Fishbook.UI
 				base.AttachUIParts(itemController);
 
 				ListItems.Add(itemController);
+
+				totalConditions += fish.GetConditionsCount();
+				discoveredConditions += fish.GetCompletedConditionsCount();
 			}
+
+			if (fishList.Length > 0) {
+				this.windowController.SetPointName($"{fishList[0].GetPointName()} ({pointInfo.PointId})");
+			}
+
+			this.windowController.SetPointCompletion(totalConditions > 0 ? ((float) discoveredConditions/totalConditions) * 100f : 100f);
 
 			this.closeButtonInfo = (SingletonMonoBehaviour<UIFactory>.Instance.Create(Define.UI.PartTypeEnum.ButtonInfo, this.windowController.InputArea.transform) as ButtonInfoUIPartController);
 			this.closeButtonInfo.Initialize();
