@@ -13,6 +13,7 @@ using Fishbook.UI;
 namespace Fishbook
 {
 	[BepInPlugin("io.github.guilherme-gm.DoraemonSoSMods.fishBook", "Fish Book", PluginInfo.PLUGIN_VERSION)]
+	[BepInDependency("io.github.guilherme-gm.DoraemonSoSMods.kzModUtils", "0.5.0")]
 	public class Plugin : BaseUnityPlugin
 	{
 		// public static readonly int ATLAS_ID = 99999;
