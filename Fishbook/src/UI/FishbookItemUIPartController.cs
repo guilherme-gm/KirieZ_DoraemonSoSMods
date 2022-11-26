@@ -1,5 +1,6 @@
 using Fishbook.Entities;
 using kzModUtils.Resource;
+using kzModUtils.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ namespace Fishbook.UI
 		private Image BorderImage;
 
 		private Image FishSprite;
+
+		private Image CrownSprite;
 
 		private Text FishName;
 
@@ -37,10 +40,14 @@ namespace Fishbook.UI
 			}
 
 			this.FishSprite = FishObject?.Find("Sprite")?.GetComponent<Image>();
+			this.CrownSprite = FishObject?.Find("Crown")?.GetComponent<Image>();
 			this.FishName = FishObject?.Find("Name")?.GetComponent<Text>();
 			this.FishShadow = this.transform?.Find("Shadow")?.GetComponent<Text>();
 			this.Completion = this.transform?.Find("Completion")?.GetComponent<Text>();
 			this.BorderImage = this.gameObject.GetComponent<Image>();
+
+			this.CrownSprite.sprite = UIUtils.GetUISprite(UISprite.Icon_Crown_01);
+			this.CrownSprite.Deactivate();
 
 			this.Deselect();
 
@@ -67,6 +74,13 @@ namespace Fishbook.UI
 						this.FishShadow.text = "Large";
 						break;
 				}
+
+				var fish1Data = SingletonMonoBehaviour<UserManager>.Instance.User.FishPicturebookModel.GetPicturebookInfo(fish.Item.Id);
+				var fish2Data = SingletonMonoBehaviour<UserManager>.Instance.User.FishPicturebook2Model.GetPicturebookInfo(fish.Item.Id);
+				var targetData = fish1Data == null ? fish2Data : fish1Data;
+
+				if (targetData != null && targetData.MaxQuality == Define.Item.MAX_QUALITY)
+					this.CrownSprite.Activate();
 			}
 			else
 			{
