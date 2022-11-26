@@ -42,5 +42,10 @@ namespace kzModUtils.UI
 		{
 			UIUtils.OnGameUIReady?.Invoke(null, args);
 		}
+
+		public static Sprite GetUISprite(UISprite sprite)
+		{
+			return UIAssets.Sprites.GetValue(sprite, null);
+		}
 	}
 }
