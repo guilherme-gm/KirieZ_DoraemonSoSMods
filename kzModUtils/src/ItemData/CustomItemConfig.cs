@@ -1,3 +1,6 @@
+using kzModUtils.Resource;
+using System;
+
 namespace kzModUtils.ItemData
 {
 	public class CustomItemConfig: IIdentifiableConfig
@@ -18,10 +21,14 @@ namespace kzModUtils.ItemData
 
 		public Define.Item.CategoryEnum Category { get; set; }
 
-		public int AtlasId { get; set; }
+		public CustomSpriteConfig Sprite { get; set; }
 
 		public int ResourceId { get; set; }
 
+		[Obsolete("AtlasId is part of the old direct approach. Please use Sprite property.")]
+		public int AtlasId { get; set; }
+
+		[Obsolete("SpriteId is part of the old direct approach. Please use Sprite property.")]
 		public int SpriteId { get; set; }
 
 		public ItemHelper.OnItemRegistered Callback { get; set; }
@@ -47,10 +54,18 @@ namespace kzModUtils.ItemData
 				// Category-specific / Size display
 				mMaxSize = 0,
 				mMinSize = 0,
+				// Resource
+				mResourceId = this.ResourceId, // FIXME: What is exactly this used for?
+
+// Ignore obsolete warning here, as we need it to keep backward compatibility
+#pragma warning disable 618
+
 				// Sprite
-				mAtlasId = 20101, // ATLAS_ID,
-				mResourceId = 2130, // FIXME: What is exactly this used for?
-				mSpriteId = 1002130, // 1,
+				mAtlasId = (this.Sprite == null ? this.AtlasId : this.Sprite.AtlasId),
+				mSpriteId = (this.Sprite == null ? this.SpriteId : this.Sprite.SpriteId),
+
+// Restore obsolete warning
+#pragma warning restore 618
 			});
 		}
 

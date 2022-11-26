@@ -67,7 +67,11 @@ namespace kzModUtils.ItemData
 		private void UnregisterAll()
 		{
 			foreach (var item in this.CustomItemConfigs)
+			{
+				if (item.Sprite?.Sprite != null)
+					Resource.ResourceModule.Instance.RemoveSprite(item.GetId());
 				this.Items.Remove(item.GetId());
+			}
 		}
 
 		public void Setup(ModDataSavedState state = null)
@@ -99,6 +103,12 @@ namespace kzModUtils.ItemData
 
 					itemId = idRange[0];
 					idRange[0]++;
+				}
+
+				if (config.Sprite?.Sprite != null)
+				{
+					if (!Resource.ResourceModule.Instance.RegisterSprite(itemId, config.Sprite.Sprite))
+						Console.WriteLine($"Failed to register item sprite for {itemId}");
 				}
 
 				var item = config.ToMasterModel(itemId);
