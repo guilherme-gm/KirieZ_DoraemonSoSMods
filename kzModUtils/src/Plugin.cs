@@ -13,6 +13,7 @@ namespace kzModUtils
 
 		private IModule[] Modules = new IModule[]
 		{
+			Resource.ResourceModule.Instance,
 			TimeModule.Instance,
 			UIModule.Instance,
 			TextData.TextDataModule.Instance,

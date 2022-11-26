@@ -52,5 +52,18 @@ namespace kzModUtils.Resource
 
 			return $"{basePath}/{resourceName}";
 		}
+
+		/**
+		 * Registers a sprite into a custom atlas that may be used for mods.
+		 *
+		 * Sprites registered through this method will be automatically handled when original code calls LoadSprite.
+		 * @param sprite the sprite to be registered
+		 * @returns a "CustomSpriteConfig" that contains information about the atlas.
+		 *          use the provided atlas id / sprite id in your code.
+		 */
+		public static CustomSpriteConfig RegisterSprite(Sprite sprite)
+		{
+			return ResourceModule.Instance.RegisterSprite(sprite);
+		}
 	}
 }
