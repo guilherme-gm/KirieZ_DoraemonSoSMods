@@ -39,10 +39,10 @@ Utility to dump the binary resources as text. This is a prototype and quite unst
 ### Event Alert
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
 
-### Fishbook (WIP)
+### Fishbook
 Adds a fishbook item to be bought. This item will track your progress as you catch fishes on the game and display info about each fishing spot when you get near them.
 
-This mod is functional but still misses several visual improvements.
+This mod is pretty much done, but still could use some visual improvements.
 
 ![Fishbook](./docs/modImages/Fishbook.gif)
 

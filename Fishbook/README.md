@@ -1,7 +1,5 @@
 # Fishbook
 
-**Note:** This mod is a WIP. Currently it tracks everything and display most of the information, but the UI is still not that beautiful/immersive.
-
 Adds a new item to the general store: A fish book.
 
 Obtaining this adds the "View fish book" option when you approach a fishing spot. The book will them display information related to fishes you found in the area.
@@ -11,8 +9,11 @@ Information is gathered while you fish and unlocked bit by bit.
 Currently, the following information is tracked:
 - Shadow size
 - Time/Season/Weather that you may find the fish
+- Whether you have catched a 5* or not (for fishguide completion)
 
 The findings are split by season and time ranges, so if a fish appears during the entire day in every season, you will have to catch it 4 times to complete its entries: 1 time per season.
+
+Additionaly, you can switch between an all seasons/current season view. This will give you an idea whether there are still fishes that you never caught in this season to help you hunt for them.
 
 ## Installation
 You must have BepInEx v5 and kz Mod Utils installed on your game.
