@@ -56,6 +56,9 @@ Adds a new line to item descriptions in inventory stating the value for which yo
 
 ![Show item price](./docs/modImages/ShowItemPrice.gif)
 
+### Sort Lists
+Displays some of the in-game list menus alphabetically sorted instead of in a "random" order. This make it easier to find what you are looking for in long lists.
+
 ### Stamina Bar
 Displays a little window with your current stamina, so you don't have to pause the game to check.
 
