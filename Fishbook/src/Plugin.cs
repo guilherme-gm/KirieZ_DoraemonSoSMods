@@ -16,8 +16,6 @@ namespace Fishbook
 	[BepInDependency("io.github.guilherme-gm.DoraemonSoSMods.kzModUtils", "0.5.0")]
 	public class Plugin : BaseUnityPlugin
 	{
-		// public static readonly int ATLAS_ID = 99999;
-
 		private static AssetBundle Assets;
 
 		private static GameObject FishbookUI;
@@ -37,6 +35,7 @@ namespace Fishbook
 			Assets = AssetBundle.LoadFromFile(ResourceUtils.GetAssetBundlePath(ResourceType.Plugin, "Fishbook/FishBook", ""));
 			FishbookUI = Assets.LoadAsset<GameObject>("Fishbook");
 			FishInfoUI = Assets.LoadAsset<GameObject>("FishInfo");
+			var bookSprite = Assets.LoadAsset<Sprite>("Fishbook_Icon");
 
 			var fishbook = new CustomItemConfig() {
 				ModItemID = "fishbook.book",
@@ -44,9 +43,8 @@ namespace Fishbook
 				Description = "A book containing details about fishes you have catched.",
 				IsImportant = true,
 				Category = Define.Item.CategoryEnum.ConsumptionTool,
-				AtlasId = 20101,
-				ResourceId = 2130,
-				SpriteId = 1002130,
+				Sprite = ResourceUtils.RegisterSprite(bookSprite),
+				ResourceId = 0,
 			};
 
 			ItemHelper.Instance.RegisterItem(fishbook, (item) => {
@@ -137,23 +135,6 @@ namespace Fishbook
 			var go = GameObject.Instantiate(FishbookUI, parent, false);
 			__result = go.AddComponent<FishbookWindowUIPartController>();
 		}
-
-/*
-		[HarmonyPatch(typeof(AtlasFactory), "LoadSprite")]
-		[HarmonyPrefix]
-		static void OnLoadSprite(
-			int atlas_id, int sprite_id, Action<UnityEngine.Sprite> loaded_callback,
-			ref bool __runOriginal
-		)
-		{
-			if (atlas_id != ATLAS_ID) {
-				return;
-			}
-
-			__runOriginal = false;
-			loaded_callback(null); // FIXME: include sprite
-		}
-*/
 
 		[HarmonyPatch(typeof(FishingPointController), "Awake")]
 		[HarmonyPostfix]
