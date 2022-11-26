@@ -47,6 +47,7 @@ namespace kzModUtils.UI
 		{
 			Dictionary<string, UISprite> spritesToLoad = new Dictionary<string, UISprite>()
 			{
+				{ "Icon_Crown_01", UISprite.Icon_Crown_01 },
 				{ "Square_R_02", UISprite.Square_R_02 },
 				{ "Square_R_05", UISprite.Square_R_05 },
 			};

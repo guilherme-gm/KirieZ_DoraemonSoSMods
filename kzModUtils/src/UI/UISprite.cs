@@ -2,7 +2,8 @@ namespace kzModUtils.UI
 {
 	public enum UISprite
 	{
-		Square_R_02 = 1,
+		Icon_Crown_01 = 1,
+		Square_R_02,
 		Square_R_05,
 	}
 }
