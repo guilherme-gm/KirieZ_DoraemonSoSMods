@@ -68,6 +68,16 @@ Displays a little window with your current stamina, so you don't have to pause t
 - TFM: net35
 - Unity version: 2017.4.10
 
+## Building
+To build those mods yourself you will need .NET Framework installed (per BepInEx dependency) and Visual Studio.
+
+After having those pre-requisites:
+1. Clone this repository
+2. Copy `Assembly-CSharp.dll` and `UnityEngine.UI.dll` from your Doraemon Story of Seasons folder (path: `[SteamApps folder]/DORAEMON STORY OF SEASONS/DORaEMON STORY OF SEASONS_Data/Managed/`) into `libs` folder in this cloned repository.
+3. Open `Mods.sln` and wait until it gets additional dependencies via NuGet
+4. You are ready to click on "Build"
+
+Similar steps may work for VSCode, but I am not sure how to download NuGet packages there.
 
 ## Issues
 If you have found any issue, consider opening an Issue and stating as much details as possible.
