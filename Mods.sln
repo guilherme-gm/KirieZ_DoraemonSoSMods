@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kzModUtils", "kzModUtils\kzModUtils.csproj", "{F4707E56-2055-4E78-97C8-12BF7D9743F0}"
 EndProject
@@ -29,6 +29,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlternativeFurnitureRotation", "AlternativeFurnitureRotation\AlternativeFurnitureRotation.csproj", "{D7C8B5DB-8B11-4C57-A64D-03CEA12A10A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortLists", "SortLists\SortLists.csproj", "{2530C739-EBB3-41E1-BB1A-5D793EFDA653}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnhancementsAndTweaks", "EnhancementsAndTweaks\EnhancementsAndTweaks.csproj", "{D02FC14A-8605-42AC-B001-C9D0EE2E1593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{2530C739-EBB3-41E1-BB1A-5D793EFDA653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2530C739-EBB3-41E1-BB1A-5D793EFDA653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2530C739-EBB3-41E1-BB1A-5D793EFDA653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02FC14A-8605-42AC-B001-C9D0EE2E1593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02FC14A-8605-42AC-B001-C9D0EE2E1593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02FC14A-8605-42AC-B001-C9D0EE2E1593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02FC14A-8605-42AC-B001-C9D0EE2E1593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
