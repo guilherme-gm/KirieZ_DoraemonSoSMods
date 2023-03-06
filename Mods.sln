@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaminaBar", "StaminaBar\StaminaBar.csproj", "{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdjustToolStamina", "AdjustToolStamina\AdjustToolStamina.csproj", "{E9ACDA98-4C1A-4E2C-8B68-A502016D4A83}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfirmBeehiveRemoval", "ConfirmBeehiveRemoval\ConfirmBeehiveRemoval.csproj", "{75C3BD3B-7A73-4960-9AD5-EE72CA4370C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DumpMaster", "DumpMaster\DumpMaster.csproj", "{32A4BDEB-E397-4C4A-9054-8C4E155D563B}"
@@ -46,10 +44,6 @@ Global
 		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C21A3737-9F6B-4D37-BD9F-248BC4BBAF92}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9ACDA98-4C1A-4E2C-8B68-A502016D4A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9ACDA98-4C1A-4E2C-8B68-A502016D4A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9ACDA98-4C1A-4E2C-8B68-A502016D4A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9ACDA98-4C1A-4E2C-8B68-A502016D4A83}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75C3BD3B-7A73-4960-9AD5-EE72CA4370C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75C3BD3B-7A73-4960-9AD5-EE72CA4370C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75C3BD3B-7A73-4960-9AD5-EE72CA4370C7}.Release|Any CPU.ActiveCfg = Release|Any CPU

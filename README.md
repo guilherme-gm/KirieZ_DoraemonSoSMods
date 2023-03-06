@@ -10,11 +10,6 @@ It also helps solve conflicts between mods, for example, by providing a single a
 
 ## List of mods
 
-### Adjust Tool Stamina
-Makes every tool that consumes stamina always use 1, whatever the charge level is.
-
-This aims at providing a better progression around tools, as you usually get better tools but still consumes the same amount of stamina as if you were using level 1.
-
 ### Alternative Furniture Rotation
 Changes how furniture placement works to provide a different rotation system.
 1. It doesn't force the rotation to the character direction;
