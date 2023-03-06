@@ -20,7 +20,7 @@ namespace EnhancementsAndTweaks.Mods
 
 		private ConfigEntry<bool> CreateBind(ConfigFile config, string key, bool defaultValue, string displayName)
 		{
-			return config.Bind("Sort Target", key, defaultValue, $"Whether to sort or not {displayName}");
+			return config.Bind($"{TweakName} - Sort Target", key, defaultValue, $"Whether to sort or not {displayName}");
 		}
 
 		string IMod.GetName()
