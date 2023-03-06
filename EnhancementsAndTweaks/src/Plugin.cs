@@ -25,6 +25,7 @@ namespace EnhancementsAndTweaks
 			new ConfirmBeehiveRemovalMod(),
 			new EventAlertMod(),
 			new MapShopTimesMod(),
+			new ShowItemPriceMod(),
 		};
 
 		private AssetBundle Assets;

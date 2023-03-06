@@ -59,6 +59,11 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/ShopTimesMod.gif" width="400px" />
 </p>
 
+- **(QoL)** Display item sell price beside item description
+<p align="center">
+	<img src="./docs/modImages/ShowItemPrice.gif" width="400px" />
+</p>
+
 ### Event Alert
 > **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
 > Please, migrate to it.
@@ -81,6 +86,9 @@ Adds a new button to the minimap window to toggle a small extra window that show
 ![Map Shop times](./docs/modImages/ShopTimesMod.gif)
 
 ### Show Item Price
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Adds a new line to item descriptions in inventory stating the value for which you would sell it. It takes into account the quality bonus.
 
 ![Show item price](./docs/modImages/ShowItemPrice.gif)

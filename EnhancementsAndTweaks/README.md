@@ -18,6 +18,8 @@ customize it to your desires.
 		- [Configs](#configs-3)
 	- [Map Shop Times](#map-shop-times)
 		- [Configs](#configs-4)
+	- [Show Item Price](#show-item-price)
+		- [Configs](#configs-5)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
@@ -117,6 +119,26 @@ Shops in Doraemon SoS opens in weird times and different days, which is annoying
 usually will go for an external guide.
 
 This mod simply adds a small window so you can check it in game.
+
+#### Configs
+| Config Name | Description        | Accepted Values | Default |
+| ----------- | ------------------ | --------------- | ------- |
+| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
+
+
+### Show Item Price
+<p align="center">
+	<img src="../docs/modImages/ShowItemPrice.gif" width="600px"/>
+</p>
+
+Adds a new box beside item description in inventory and storages UIs.
+This box presents information about the price of the item when sold.
+
+It includes the base price (0.5 star) and the current price, helping you keep track of how much you are
+earning for those items/deciding what to sell.
+
+Although the game provides a UI to keep track of gainings/losses, it is really hard to track individual
+prices, specially when quality stars are added in the sum.
 
 #### Configs
 | Config Name | Description        | Accepted Values | Default |
