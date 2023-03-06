@@ -14,6 +14,8 @@ customize it to your desires.
 		- [Configs](#configs-1)
 	- [Confirm Beehive Removal](#confirm-beehive-removal)
 		- [Configs](#configs-2)
+	- [Event Alert](#event-alert)
+		- [Configs](#configs-3)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
@@ -86,6 +88,15 @@ I won't call it as "better" because it is also not that fluid, but it is an alte
 Adds a dialog to confirm before you remove a placed beehive.
 
 This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees ( I did this several times :) )
+
+#### Configs
+| Config Name | Description        | Accepted Values | Default |
+| ----------- | ------------------ | --------------- | ------- |
+| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
+
+
+### Event Alert
+Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
 
 #### Configs
 | Config Name | Description        | Accepted Values | Default |

@@ -23,6 +23,7 @@ namespace EnhancementsAndTweaks
 			new AdjustToolStaminaMod(),
 			new AlternativeFurnitureRotationMod(),
 			new ConfirmBeehiveRemovalMod(),
+			new EventAlertMod(),
 		};
 
 		private AssetBundle Assets;

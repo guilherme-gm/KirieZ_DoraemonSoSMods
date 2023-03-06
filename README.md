@@ -53,7 +53,12 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/ConfirmBeehiveRemoval.gif" width="400px" />
 </p>
 
+- **(QoL)** Displays an alert using the event log when a festival is about to start.
+
 ### Event Alert
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
 
 ### Fishbook
