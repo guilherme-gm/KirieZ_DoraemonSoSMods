@@ -17,6 +17,7 @@ You are able to toggle each change separately to pick only the ones you want.
 
 Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for details)
 - **(Adjustment)** Make tools consume 1 of stamina regardless of the charging level
+- **(Adjustment)** Reduce friendship cost from asking Korobokkur's help (and remove cost at 10 hearts)
 - **(QoL)** Put a new system to rotate/place objects
 <p align="center">
 	<img src="./docs/modImages/AlternativeFurnitureRotation.gif" width="400px" />

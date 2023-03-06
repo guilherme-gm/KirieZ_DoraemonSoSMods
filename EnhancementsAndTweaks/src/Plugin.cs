@@ -21,6 +21,7 @@ namespace EnhancementsAndTweaks
 		);
 
 		private static readonly IMod[] ModList = new IMod[]{
+			new AdjustKorobokkurFriendshipMod(),
 			new AdjustToolStaminaMod(),
 			new AlternativeFurnitureRotationMod(),
 			new ConfirmBeehiveRemovalMod(),

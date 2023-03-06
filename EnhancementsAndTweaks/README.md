@@ -7,8 +7,11 @@ customize it to your desires.
 **Table of Contents:**
 - [Installation](#installation)
 - [List of mods](#list-of-mods)
-	- [Adjust Tool Stamina](#adjust-tool-stamina)
+	- [Adjust Korobokkur Friendship](#adjust-korobokkur-friendship)
 		- [Reasoning](#reasoning)
+		- [Configs](#configs)
+	- [Adjust Tool Stamina](#adjust-tool-stamina)
+		- [Reasoning](#reasoning-1)
 	- [Alternative Furniture Rotation](#alternative-furniture-rotation)
 	- [Confirm Beehive Removal](#confirm-beehive-removal)
 	- [Event Alert](#event-alert)
@@ -16,7 +19,7 @@ customize it to your desires.
 	- [Show Can Make Recipes](#show-can-make-recipes)
 	- [Show Item Price](#show-item-price)
 	- [Sort Lists](#sort-lists)
-		- [Configs](#configs)
+		- [Configs](#configs-1)
 	- [Stamina Bar](#stamina-bar)
 - [Configuration](#configuration)
 - [Building](#building)
@@ -39,6 +42,40 @@ After having them installed:
 ---
 
 ## List of mods
+
+### Adjust Korobokkur Friendship
+Change how requesting help from the Korobokkur affects your friendship with them. By default:
+- Friendship reduction goes from 120 points to 10 points (configurable)
+- Once friendship is maxed out, it doesn't reduces anymore (configurable)
+
+#### Reasoning
+In the original game, requesting their help costs 120 friendship points, when you compare this to
+the possibilities to improve friendship, you get the following:
+- Talk: 25 points
+- Liked gift: 25 points
+- Loved gift: 60 points
+- Cupid arrow: 100 points
+
+Giving 1 loved gift + talking every day sums up to 85 points/day.
+But asking for their help costs 120, and in the start, you only get 2 days of work.
+
+Summarizing, this means that you have to give the best gift + talk to them every day just to be going up 50 points every 2 days.
+
+And the only advantage you have is: You can get them working for you for more days in a row.
+
+A cheaper alternative would be to leave them at the minimun friendship and just repeat asking their help
+every 2 days -- but this is tedious!
+
+Changing the cost to 10 points you can still grow the friendship with them while asking for help, as long
+as you keep talking to them. And once you reach the maximum, you don't have to worry about losing points.
+
+#### Configs
+| Config Name   | Description                                            | Accepted Values  | Default |
+| ------------- | ------------------------------------------------------ | ---------------- | ------- |
+| DecreaseOnMax | When at 10 hears, asking help decreases friendship?    | `true`/`false`   | `false` |
+| AssistCost    | How much friendship is decreased when asking for help? | positive numbers | `10`  |
+
+---
 
 ### Adjust Tool Stamina
 Makes every tool that consumes stamina always use 1, whatever the charge level is.
