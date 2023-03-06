@@ -20,6 +20,8 @@ customize it to your desires.
 		- [Configs](#configs-4)
 	- [Show Item Price](#show-item-price)
 		- [Configs](#configs-5)
+	- [Sort Lists](#sort-lists)
+		- [Configs](#configs-6)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
@@ -145,6 +147,27 @@ prices, specially when quality stars are added in the sum.
 | ----------- | ------------------ | --------------- | ------- |
 | Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
 
+
+### Sort Lists
+Sorts some in-game menu lists alphabetically instead of the "random" order they are originally in.
+This make it easier to find what you are looking for.
+
+Currently the following lists are supported (some are disabled by default, see Config on how to enable them):
+- Kitchen's recipe list (default: sorted)
+- Cafe's recipe shop (default: sorted)
+- Cafe's produce shop (default: original / not sorted)
+- Cafe's meals shop (default: original / not sorted)
+
+If there is any other list that you feel the need to be sorted, let me know (or submit a PR!).
+
+#### Configs
+| Config Name         | Description                                 | Accepted Values | Default |
+| ------------------- | ------------------------------------------- | --------------- | ------- |
+| Enabled             | Enable/Disable mod                          | `true`/`false`  | `true`  |
+| SortRecipeList      | Sort Kitchen's recipe list?                 | `true`/`false`  | `true`  |
+| SortRecipeShopList  | Sort Cafet's Recipe Shop list?              | `true`/`false`  | `true`  |
+| SortProduceShopList | Sort Cafet's Produce list (vegetables/etc)? | `true`/`false`  | `false` |
+| SortMealsShopList   | Sort Cafet's Meals shop list (food shop)?   | `true`/`false`  | `false` |
 
 ## Configuration
 TODO:

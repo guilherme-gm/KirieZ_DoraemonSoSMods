@@ -64,6 +64,9 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/ShowItemPrice.gif" width="400px" />
 </p>
 
+- **(QoL)** Sorts some lists menu alphabetically
+
+
 ### Event Alert
 > **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
 > Please, migrate to it.
@@ -94,6 +97,9 @@ Adds a new line to item descriptions in inventory stating the value for which yo
 ![Show item price](./docs/modImages/ShowItemPrice.gif)
 
 ### Sort Lists
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Displays some of the in-game list menus alphabetically sorted instead of in a "random" order. This make it easier to find what you are looking for in long lists.
 
 ### Stamina Bar
