@@ -27,6 +27,7 @@ namespace EnhancementsAndTweaks
 			new MapShopTimesMod(),
 			new ShowItemPriceMod(),
 			new SortListsMod(),
+			new StaminaBarMod(),
 		};
 
 		private AssetBundle Assets;

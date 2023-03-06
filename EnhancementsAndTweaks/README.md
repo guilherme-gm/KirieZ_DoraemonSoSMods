@@ -22,6 +22,8 @@ customize it to your desires.
 		- [Configs](#configs-5)
 	- [Sort Lists](#sort-lists)
 		- [Configs](#configs-6)
+	- [Stamina Bar](#stamina-bar)
+		- [Configs](#configs-7)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
@@ -168,6 +170,22 @@ If there is any other list that you feel the need to be sorted, let me know (or 
 | SortRecipeShopList  | Sort Cafet's Recipe Shop list?              | `true`/`false`  | `true`  |
 | SortProduceShopList | Sort Cafet's Produce list (vegetables/etc)? | `true`/`false`  | `false` |
 | SortMealsShopList   | Sort Cafet's Meals shop list (food shop)?   | `true`/`false`  | `false` |
+
+
+### Stamina Bar
+<p align="center">
+	<img src="../docs/modImages/StaminaBarMod.gif" width="600px"/>
+</p>
+
+Displays a small window below game's clock with your current stamina.
+
+This removes the need to pause/open the game menu to check.
+
+#### Configs
+| Config Name | Description        | Accepted Values | Default |
+| ----------- | ------------------ | --------------- | ------- |
+| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
+
 
 ## Configuration
 TODO:

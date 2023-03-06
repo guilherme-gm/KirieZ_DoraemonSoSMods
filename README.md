@@ -65,7 +65,10 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 </p>
 
 - **(QoL)** Sorts some lists menu alphabetically
-
+- **(QoL)** Display player stamina below clock
+<p align="center">
+	<img src="./docs/modImages/StaminaBarMod.gif" width="400px" />
+</p>
 
 ### Event Alert
 > **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
@@ -103,6 +106,9 @@ Adds a new line to item descriptions in inventory stating the value for which yo
 Displays some of the in-game list menus alphabetically sorted instead of in a "random" order. This make it easier to find what you are looking for in long lists.
 
 ### Stamina Bar
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Displays a little window with your current stamina, so you don't have to pause the game to check.
 
 ![Stamina Bar mod](./docs/modImages/StaminaBarMod.gif)
