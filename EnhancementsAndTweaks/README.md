@@ -1,12 +1,12 @@
 # Enhancements and Tweaks
-A mod containing several additions and tweaks to the game. It aims at improving the game experience (per mod-author own perspective).
+A plugin/mod containing several additions and tweaks ("mods") to the game. It aims at improving the game experience (per mod-author own perspective).
 
 All of its changes are configurable, so you may enable only the ones you want and even enabling them may allow you to further
 customize it to your desires.
 
 **Table of Contents:**
 - [Installation](#installation)
-- [Change list](#change-list)
+- [List of mods](#list-of-mods)
 	- [Adjust Tool Stamina](#adjust-tool-stamina)
 		- [Reasoning](#reasoning)
 	- [Alternative Furniture Rotation](#alternative-furniture-rotation)
@@ -35,8 +35,9 @@ After having them installed:
 3. Start the game
 4. **(Optional)** If you don't want to use the default settings, close the game and see [Configuration](#configuration)
 
+---
 
-## Change list
+## List of mods
 
 ### Adjust Tool Stamina
 Makes every tool that consumes stamina always use 1, whatever the charge level is.
@@ -54,6 +55,7 @@ you spend less stamina doing your everyday stuff, having stamina for the rest of
 Note that this change made Silver upgrade a bit weird, because it just charges faster. I did not touch it,
 and just consider it as a "I can finish my work faster" upgrade.
 
+---
 
 ### Alternative Furniture Rotation
 <p align="center">
@@ -70,6 +72,7 @@ I won't call it as "better" because it is also not that fluid, but it is an alte
 
 **Note:** This mod will probably conflict with other mods touch furniture placement, because it replaces the main rotation code.
 
+---
 
 ### Confirm Beehive Removal
 <p align="center">
@@ -80,10 +83,12 @@ Adds a dialog to confirm before you remove a placed beehive.
 
 This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees ( I did this several times :) )
 
+---
 
 ### Event Alert
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
 
+---
 
 ### Map Shop Times
 <p align="center">
@@ -97,6 +102,7 @@ usually will go for an external guide.
 
 This mod simply adds a small window so you can check it in game.
 
+---
 
 ### Show Item Price
 <p align="center">
@@ -112,6 +118,7 @@ earning for those items/deciding what to sell.
 Although the game provides a UI to keep track of gainings/losses, it is really hard to track individual
 prices, specially when quality stars are added in the sum.
 
+---
 
 ### Sort Lists
 Sorts some in-game menu lists alphabetically instead of the "random" order they are originally in.
@@ -133,6 +140,7 @@ If there is any other list that you feel the need to be sorted, let me know (or 
 | SortProduceShopList | Sort Cafet's Produce list (vegetables/etc)? | `true`/`false`  | `false` |
 | SortMealsShopList   | Sort Cafet's Meals shop list (food shop)?   | `true`/`false`  | `false` |
 
+---
 
 ### Stamina Bar
 <p align="center">
@@ -143,6 +151,7 @@ Displays a small window below game's clock with your current stamina.
 
 This removes the need to pause/open the game menu to check.
 
+---
 
 ## Configuration
 
@@ -171,6 +180,7 @@ After finding it, simply change `true` to `false` and save. The mod will be disa
 
 Every other setting in this file works in a similar way, find the config, change it to the desired value (check each mod section above to know what each config does).
 
+---
 
 ## Building
 You will need Visual Studio 2019 and .NET Framework 3.5 installed.
@@ -180,6 +190,7 @@ You will need Visual Studio 2019 and .NET Framework 3.5 installed.
 3. Open the `Mods.sln` solution
 4. Build it
 
+---
 
 ## Contributting
 See [CONTRIBUTTING.md](../CONTRIBUTTING.md).

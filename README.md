@@ -1,7 +1,7 @@
 # KirieZ_DoraemonSoSMods
 Mods for Doraemon Story of Seasons originally made by KirieZ (@guilherme-gm)
 
-> **NOTE for old users:** If you are coming here after download mods in 2022, you may notice that there are several mods missing.
+> **NOTE for old users:** If you are coming here after downloading mods in 2022, you may notice that there are several mods missing.
 >
 > They were NOT removed. Just merged into a single mod: Enhancements and Tweaks
 >
