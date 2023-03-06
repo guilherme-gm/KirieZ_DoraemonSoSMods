@@ -31,6 +31,13 @@ Adds a dialog to confirm before you remove a placed beehive. This prevents you f
 ### Dump Master
 Utility to dump the binary resources as text. This is a prototype and quite unstable.
 
+### Enhancements and Tweaks
+This mod incorporates several Quality of Life and minor adjustments to the game to improve progression and general playing experience (in the mod-author's vision).
+You are able to toggle each change separately to pick only the ones you want.
+
+Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for details)
+- **(Adjustment)** Make tools consume 1 of stamina regardless of the charging level.
+
 ### Event Alert
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
 
