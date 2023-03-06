@@ -15,11 +15,11 @@ namespace Fishbook.Entities
 			{ 300, "Lake" },
 			{ 310, "Swamp" },
 			{ 400, "Beach" },
-			// { 410, "???" },
+			{ 410, "River to Ocean" },
 			{ 430, "Ocean" },
-			// { 500, "???" },
+			{ 500, "Underground Cave" },
 			{ 600, "Beluga Cave" },
-			// { 900, "???" },
+			{ 900, "Land Fishing" },
 		};
 
 		public int PointId { get; set; }
