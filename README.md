@@ -50,6 +50,12 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/StaminaBarMod.gif" width="400px" />
 </p>
 
+- **(QoL)** Display effect on planted crops once they reach their maximum quality (5 star)
+<p align="center">
+	<img src="./docs/modImages/QualityCropEffect.gif" width="400px" />
+</p>
+
+
 ### Fishbook
 Adds a fishbook item to be bought. This item will track your progress as you catch fishes on the game and display info about each fishing spot when you get near them.
 

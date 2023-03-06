@@ -16,6 +16,7 @@ customize it to your desires.
 	- [Confirm Beehive Removal](#confirm-beehive-removal)
 	- [Event Alert](#event-alert)
 	- [Map Shop Times](#map-shop-times)
+	- [Quality Crop Effect](#quality-crop-effect)
 	- [Show Can Make Recipes](#show-can-make-recipes)
 	- [Show Item Price](#show-item-price)
 	- [Sort Lists](#sort-lists)
@@ -139,6 +140,20 @@ Shops in Doraemon SoS opens in weird times and different days, which is annoying
 usually will go for an external guide.
 
 This mod simply adds a small window so you can check it in game.
+
+---
+
+### Quality Crop Effect
+<p align="center">
+	<img src="../docs/modImages/QualityCropEffect.gif" width="600px"/>
+</p>
+
+Add some particle effects on crops that are in their maximum quality.
+
+This helps you tell when you can stop fertilizing, as otherwise you would have to or:
+1. Fertilize every day, always. This leads you to waste a lot of time/money in fertilization, specially once you reach 5 star seeds
+2. Do lots of math to calculate how many fertilizers to apply and remember this until you
+   harvest the crop. This is hard, the game doesn't provide info for you.
 
 ---
 
