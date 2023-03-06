@@ -1,41 +1,15 @@
 # KirieZ_DoraemonSoSMods
 Mods for Doraemon Story of Seasons originally made by KirieZ (@guilherme-gm)
 
-
-## kz Mod Utils
-
-Library with utilities to make mods. The aim of this lib is to provide other mods a direct and consistent interface to do their work, so they don't have to rely on the game internals in case it ever changes.
-
-It also helps solve conflicts between mods, for example, by providing a single and incremental item ID system that mods may extend.
+> **NOTE for old users:** If you are coming here after download mods in 2022, you may notice that there are several mods missing.
+>
+> They were NOT removed. Just merged into a single mod: Enhancements and Tweaks
+>
+> Please update your mod to it, as I will only keep this mod from now on. No functionality was lost.
+> This is just a single mod that compiles all of them (and you may enable/disable them individually).
+>
 
 ## List of mods
-
-### Alternative Furniture Rotation
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
-
-Changes how furniture placement works to provide a different rotation system.
-1. It doesn't force the rotation to the character direction;
-2. The objects have a different pivot now;
-3. Adds a "Rotate" button so you can try different positioning from the same spot;
-4. Adds a directional arrow to help determining direction of objects where direct matters (e.g.: Bed).
-
-I won't call it as "better" because it is also not that fluid, but it is an alternative way that gives a bit more control / less side effects.
-
-**Note:** This mod will probably conflict with other mods touch furniture placement, because it replaces the main rotation method.
-
-![Alterative Furniture Rotation](./docs/modImages/AlternativeFurnitureRotation.gif)
-
-### Confirm Beehive Removal
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
-
-Adds a dialog to confirm before you remove a placed beehive. This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees.
-
-![Confirm beehive removal](./docs/modImages/ConfirmBeehiveRemoval.gif)
-
-### Dump Master
-Utility to dump the binary resources as text. This is a prototype and quite unstable.
 
 ### Enhancements and Tweaks
 This mod incorporates several Quality of Life and minor adjustments to the game to improve progression and general playing experience (in the mod-author's vision).
@@ -70,12 +44,6 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/StaminaBarMod.gif" width="400px" />
 </p>
 
-### Event Alert
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
-
-Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
-
 ### Fishbook
 Adds a fishbook item to be bought. This item will track your progress as you catch fishes on the game and display info about each fishing spot when you get near them.
 
@@ -83,35 +51,17 @@ This mod is pretty much done, but still could use some visual improvements.
 
 ![Fishbook](./docs/modImages/Fishbook.gif)
 
-### Map Shop Times
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
 
-Adds a new button to the minimap window to toggle a small extra window that shows shops opening times so you don't have to check external guides.
+## kz Mod Utils
 
-![Map Shop times](./docs/modImages/ShopTimesMod.gif)
+Library with utilities to make mods. The aim of this lib is to provide other mods a direct and consistent interface to do their work, so they don't have to rely on the game internals in case it ever changes.
 
-### Show Item Price
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
+It also helps solve conflicts between mods, for example, by providing a single and incremental item ID system that mods may extend.
 
-Adds a new line to item descriptions in inventory stating the value for which you would sell it. It takes into account the quality bonus.
 
-![Show item price](./docs/modImages/ShowItemPrice.gif)
+## Dump Master
+Utility to dump the binary resources as text. This is a prototype and quite unstable.
 
-### Sort Lists
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
-
-Displays some of the in-game list menus alphabetically sorted instead of in a "random" order. This make it easier to find what you are looking for in long lists.
-
-### Stamina Bar
-> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
-> Please, migrate to it.
-
-Displays a little window with your current stamina, so you don't have to pause the game to check.
-
-![Stamina Bar mod](./docs/modImages/StaminaBarMod.gif)
 
 ## Doramon Story of Seasons mod template settings
 - TFM: net35
