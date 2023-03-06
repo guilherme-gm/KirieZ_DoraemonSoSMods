@@ -26,6 +26,7 @@ namespace EnhancementsAndTweaks
 			new ConfirmBeehiveRemovalMod(),
 			new EventAlertMod(),
 			new MapShopTimesMod(),
+			new ShowCanMakeRecipesMod(),
 			new ShowItemPriceMod(),
 			new SortListsMod(),
 			new StaminaBarMod(),

@@ -13,6 +13,7 @@ customize it to your desires.
 	- [Confirm Beehive Removal](#confirm-beehive-removal)
 	- [Event Alert](#event-alert)
 	- [Map Shop Times](#map-shop-times)
+	- [Show Can Make Recipes](#show-can-make-recipes)
 	- [Show Item Price](#show-item-price)
 	- [Sort Lists](#sort-lists)
 		- [Configs](#configs)
@@ -101,6 +102,18 @@ Shops in Doraemon SoS opens in weird times and different days, which is annoying
 usually will go for an external guide.
 
 This mod simply adds a small window so you can check it in game.
+
+---
+
+### Show Can Make Recipes
+<p align="center">
+	<img src="../docs/modImages/ShowCanMakeRecipes.gif" width="600px"/>
+</p>
+
+Adds a new button in the Kitchen's menu that allows you to toggle between viewing all
+available recipes or only those you have every requirement (ingredients/tools).
+
+This makes easier to cookie when you already know what you want and have ingredients for.
 
 ---
 

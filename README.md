@@ -33,6 +33,11 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/ShopTimesMod.gif" width="400px" />
 </p>
 
+- **(QoL)** Adds a button to Kitchen's menu to toggle between all recipes you have/recipes you have required items for.
+<p align="center">
+	<img src="./docs/modImages/ShowCanMakeRecipes.gif" width="400px" />
+</p>
+
 - **(QoL)** Display item sell price beside item description
 <p align="center">
 	<img src="./docs/modImages/ShowItemPrice.gif" width="400px" />
