@@ -1,6 +1,7 @@
 using HarmonyLib;
 using BepInEx.Configuration;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace EnhancementsAndTweaks.Mods
 {
@@ -82,9 +83,8 @@ namespace EnhancementsAndTweaks.Mods
 				+ "always consume 1, regardless of how much they were \"charged\".";
 		}
 
-		bool IMod.PreInstall(ConfigFile config)
+		bool IMod.PreInstall(ConfigFile config, AssetBundle assets)
 		{
-
 			return true;
 		}
 

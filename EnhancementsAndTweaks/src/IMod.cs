@@ -1,4 +1,5 @@
 using BepInEx.Configuration;
+using UnityEngine;
 
 namespace EnhancementsAndTweaks
 {
@@ -7,6 +8,6 @@ namespace EnhancementsAndTweaks
 
         public string GetDescription();
 
-        public bool PreInstall(ConfigFile config);
+        public bool PreInstall(ConfigFile config, AssetBundle assets);
     }
 }

@@ -11,6 +11,9 @@ It also helps solve conflicts between mods, for example, by providing a single a
 ## List of mods
 
 ### Alternative Furniture Rotation
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Changes how furniture placement works to provide a different rotation system.
 1. It doesn't force the rotation to the character direction;
 2. The objects have a different pivot now;
@@ -36,7 +39,11 @@ This mod incorporates several Quality of Life and minor adjustments to the game 
 You are able to toggle each change separately to pick only the ones you want.
 
 Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for details)
-- **(Adjustment)** Make tools consume 1 of stamina regardless of the charging level.
+- **(Adjustment)** Make tools consume 1 of stamina regardless of the charging level
+- **(QoL)** Put a new system to rotate/place objects
+<p align="center">
+	<img src="./docs/modImages/AlternativeFurnitureRotation.gif" width="400px" />
+</p>
 
 ### Event Alert
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
