@@ -92,7 +92,7 @@ Displays an alert using the event log (the place where stamina status / item obt
 
 ### Map Shop Times
 <p align="center">
-	<img src="../docs/modImages/MapShopTimes.gif" width="600px"/>
+	<img src="../docs/modImages/ShopTimesMod.gif" width="600px"/>
 </p>
 
 Adds a new button to the minimap window to toggle a small extra window that shows shops working hours.
