@@ -7,6 +7,7 @@ using UnityEngine;
 namespace EnhancementsAndTweaks
 {
 	[BepInPlugin("io.github.guilherme-gm.DoraemonSoSMods.enhancementsAndTweaks", "Enhancements and Tweaks", PluginInfo.PLUGIN_VERSION)]
+	[BepInDependency("io.github.guilherme-gm.DoraemonSoSMods.kzModUtils")]
 	public class Plugin : BaseUnityPlugin
 	{
 		private static string AssetPath = (Application.platform == RuntimePlatform.OSXPlayer
@@ -21,6 +22,7 @@ namespace EnhancementsAndTweaks
 		private static readonly IMod[] ModList = new IMod[]{
 			new AdjustToolStaminaMod(),
 			new AlternativeFurnitureRotationMod(),
+			new ConfirmBeehiveRemovalMod(),
 		};
 
 		private AssetBundle Assets;

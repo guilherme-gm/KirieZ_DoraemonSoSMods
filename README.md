@@ -27,6 +27,9 @@ I won't call it as "better" because it is also not that fluid, but it is an alte
 ![Alterative Furniture Rotation](./docs/modImages/AlternativeFurnitureRotation.gif)
 
 ### Confirm Beehive Removal
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Adds a dialog to confirm before you remove a placed beehive. This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees.
 
 ![Confirm beehive removal](./docs/modImages/ConfirmBeehiveRemoval.gif)
@@ -43,6 +46,11 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 - **(QoL)** Put a new system to rotate/place objects
 <p align="center">
 	<img src="./docs/modImages/AlternativeFurnitureRotation.gif" width="400px" />
+</p>
+
+- **(QoL)** Add a confirmation dialog before you remove a Beehive
+<p align="center">
+	<img src="./docs/modImages/ConfirmBeehiveRemoval.gif" width="400px" />
 </p>
 
 ### Event Alert

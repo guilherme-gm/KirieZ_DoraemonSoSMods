@@ -12,17 +12,21 @@ customize it to your desires.
 		- [Configs](#configs)
 	- [Alternative Furniture Rotation](#alternative-furniture-rotation)
 		- [Configs](#configs-1)
+	- [Confirm Beehive Removal](#confirm-beehive-removal)
+		- [Configs](#configs-2)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
 
 
 ## Installation
-You must have BepInEx v5 installed on your game.
+**Requirements:**
+You must have BepInEx v5 and kz Mod Utils installed on your game.
 - [Download BepInEx v5](https://github.com/BepInEx/BepInEx/releases)
-- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
+	- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
+- [kz Mod Utils page](../kzModUtils/)
 
-After having it installed:
+After having them installed:
 1. download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page
 2. Extract its content into your game's `BepInEx/plugins/` folder
 3. Start the game
@@ -67,6 +71,21 @@ Changes how furniture placement works to provide a different rotation system.
 I won't call it as "better" because it is also not that fluid, but it is an alternative way that gives a bit more control / less side effects.
 
 **Note:** This mod will probably conflict with other mods touch furniture placement, because it replaces the main rotation code.
+
+#### Configs
+| Config Name | Description        | Accepted Values | Default |
+| ----------- | ------------------ | --------------- | ------- |
+| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
+
+
+### Confirm Beehive Removal
+<p align="center">
+	<img src="../docs/modImages/ConfirmBeehiveRemoval.gif" width="600px"/>
+</p>
+
+Adds a dialog to confirm before you remove a placed beehive.
+
+This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees ( I did this several times :) )
 
 #### Configs
 | Config Name | Description        | Accepted Values | Default |
