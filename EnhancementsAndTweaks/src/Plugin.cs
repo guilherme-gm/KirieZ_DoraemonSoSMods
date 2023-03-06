@@ -24,6 +24,7 @@ namespace EnhancementsAndTweaks
 			new AlternativeFurnitureRotationMod(),
 			new ConfirmBeehiveRemovalMod(),
 			new EventAlertMod(),
+			new MapShopTimesMod(),
 		};
 
 		private AssetBundle Assets;

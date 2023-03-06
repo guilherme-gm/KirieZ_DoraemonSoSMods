@@ -16,6 +16,8 @@ customize it to your desires.
 		- [Configs](#configs-2)
 	- [Event Alert](#event-alert)
 		- [Configs](#configs-3)
+	- [Map Shop Times](#map-shop-times)
+		- [Configs](#configs-4)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
@@ -97,6 +99,24 @@ This prevents you from accidentally removing a beehive that has bees and end up 
 
 ### Event Alert
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
+
+#### Configs
+| Config Name | Description        | Accepted Values | Default |
+| ----------- | ------------------ | --------------- | ------- |
+| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
+
+
+### Map Shop Times
+<p align="center">
+	<img src="../docs/modImages/MapShopTimes.gif" width="600px"/>
+</p>
+
+Adds a new button to the minimap window to toggle a small extra window that shows shops working hours.
+
+Shops in Doraemon SoS opens in weird times and different days, which is annoying to remember and you
+usually will go for an external guide.
+
+This mod simply adds a small window so you can check it in game.
 
 #### Configs
 | Config Name | Description        | Accepted Values | Default |

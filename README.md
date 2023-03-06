@@ -53,7 +53,11 @@ Summarized list of changes: (View [mod page](./EnhancementsAndTweaks/) for detai
 	<img src="./docs/modImages/ConfirmBeehiveRemoval.gif" width="400px" />
 </p>
 
-- **(QoL)** Displays an alert using the event log when a festival is about to start.
+- **(QoL)** Displays an alert using the event log when a festival is about to start
+- **(QoL)** Adds a togglable window in mini-map menu to display shops working hours
+<p align="center">
+	<img src="./docs/modImages/ShopTimesMod.gif" width="400px" />
+</p>
 
 ### Event Alert
 > **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
@@ -69,6 +73,9 @@ This mod is pretty much done, but still could use some visual improvements.
 ![Fishbook](./docs/modImages/Fishbook.gif)
 
 ### Map Shop Times
+> **NOTE:** This mod was moved to [Enhancements And Tweaks](#enhancements-and-tweaks) and will soon be removed.
+> Please, migrate to it.
+
 Adds a new button to the minimap window to toggle a small extra window that shows shops opening times so you don't have to check external guides.
 
 ![Map Shop times](./docs/modImages/ShopTimesMod.gif)
