@@ -128,7 +128,6 @@ If there is any other list that you feel the need to be sorted, let me know (or 
 #### Configs
 | Config Name         | Description                                 | Accepted Values | Default |
 | ------------------- | ------------------------------------------- | --------------- | ------- |
-| Enabled             | Enable/Disable mod                          | `true`/`false`  | `true`  |
 | SortRecipeList      | Sort Kitchen's recipe list?                 | `true`/`false`  | `true`  |
 | SortRecipeShopList  | Sort Cafet's Recipe Shop list?              | `true`/`false`  | `true`  |
 | SortProduceShopList | Sort Cafet's Produce list (vegetables/etc)? | `true`/`false`  | `false` |
@@ -146,7 +145,32 @@ This removes the need to pause/open the game menu to check.
 
 
 ## Configuration
-TODO:
+
+> **Note:** Using [BepInEx Configuration Manager](https://github.com/BepInEx/BepInEx.ConfigurationManager) to enable/disable mods won't work until you restart the game.
+> For other settings it should work fine.
+
+> **Note:** Before editting the config files, close the game.
+
+After installing this mod and starting your game once, a config file will be generated at
+`[install dir]/BepInEx/config/io.github.guilherme-gm.DoraemonSoSMods.enhancementsAndTweaks.cfg`.
+
+Open this file and change the settings as you wish. The first section, `[Mod Enable]` will
+cover configs to enable each of the mods supported by `Enhancements And Tweaks`.
+
+To disable one mod (for example, `Adjust Tool Stamina`), simply search for the `Enable[ModName] = true` line. For example:
+```
+## Enable Adjust Tool Stamina.
+## This will make every tool in the game that consumes stamina (e.g. Watering Can, Axe, ...)
+## always consume 1, regardless of how much they were "charged".
+# Setting type: Boolean
+# Default value: true
+EnableAdjustToolStamina = true <----- Here
+```
+
+After finding it, simply change `true` to `false` and save. The mod will be disabled.
+
+Every other setting in this file works in a similar way, find the config, change it to the desired value (check each mod section above to know what each config does).
+
 
 ## Building
 You will need Visual Studio 2019 and .NET Framework 3.5 installed.
