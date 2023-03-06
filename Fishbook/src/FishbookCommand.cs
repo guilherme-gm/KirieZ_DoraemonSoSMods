@@ -7,9 +7,19 @@ namespace Fishbook
 	{
 		public int mId;
 
+		private FishingPointController mFishingPointController;
+
+		private int mPointId;
+
 		public FishbookCommand(FishingPointController fishing_point, int mid)
 		{
 			this.mFishingPointController = fishing_point;
+			this.mId = mid;
+		}
+
+		public FishbookCommand(int pointId, int mid)
+		{
+			this.mPointId = pointId;
 			this.mId = mid;
 		}
 
@@ -21,6 +31,18 @@ namespace Fishbook
 			}
 		}
 
+		public int PointId
+		{
+			get
+			{
+				if (this.mFishingPointController != null) {
+					return this.mFishingPointController.FishingPointId;
+				}
+
+				return this.mPointId;
+			}
+		}
+
 		public override bool Execute(out ResponseModel response)
 		{
 			response = null;
@@ -28,7 +50,7 @@ namespace Fishbook
 				return false;
 			}
 
-			response = new ResponseModel((Define.UI.TypeEnum) 500, new FishbookUIController.Argument(this.mFishingPointController.FishingPointId));
+			response = new ResponseModel((Define.UI.TypeEnum) 500, new FishbookUIController.Argument(this.PointId));
 			return true;
 		}
 
@@ -67,9 +89,14 @@ namespace Fishbook
 
 		public override bool IsValid()
 		{
+			var count = SingletonMonoBehaviour<UserManager>.Instance.User.GetItemCountFromInventory(Plugin.FishbookItem.Id);
+			if (count <= 0)
+				return false;
+
+			if (this.PointId == 900)
+				return SingletonMonoBehaviour<UserManager>.Instance.User.Inventory.GetItemIdInHand() == Item.ID_UNDERGROUND_FISHING_ROD;
+
 			return true;
 		}
-
-		private FishingPointController mFishingPointController;
 	}
 }

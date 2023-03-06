@@ -22,7 +22,7 @@ namespace Fishbook
 
 		public static GameObject FishInfoUI;
 
-		private static CustomItem FishbookItem;
+		public static CustomItem FishbookItem;
 
 		private void Awake()
 		{
@@ -151,6 +151,76 @@ namespace Fishbook
 
 				___mCommands = newCommands;
 			}
+		}
+
+		[HarmonyPatch(
+			typeof(FarmFreeState),
+			MethodType.Constructor,
+			new Type[] {
+				typeof(FarmScheduleRegisterer),
+				typeof(FarmPlayerController),
+				typeof(FarmCameraController),
+				typeof(GroundController),
+				typeof(FloorController),
+				typeof(NpcGroupController),
+				typeof(AnimalGroupController),
+				typeof(BugGroupController),
+				typeof(Transform),
+				typeof(Action<WarpPointModel, bool, System.Action>),
+				typeof(Action<Define.Scene.Farm.StateEnum, ICommandHolderObject, ICommand>),
+				typeof(DailyScheduler)
+			}
+		)]
+		[HarmonyPostfix]
+		static void OnFarmFreeStateCreated(
+			FarmFreeState __instance,
+			ref ICommand[] ___mItemUseCommands
+		)
+		{
+			var newCommands = new ICommand[___mItemUseCommands.Length + 1];
+			for (var i = 0; i < ___mItemUseCommands.Length; i++)
+				newCommands[i] = ___mItemUseCommands[i];
+
+			newCommands[newCommands.Length - 1] = new FishbookCommand(900, -1);
+
+			___mItemUseCommands = newCommands;
+		}
+
+		[HarmonyPatch(typeof(FarmTalkState), "BeginCallback")]
+		[HarmonyPrefix]
+		static void OnFarmTalkStateCallback(
+			ICommandHolderObject collided_obj,
+			ICommand stacked_command,
+			Action<Define.Scene.Farm.StateEnum, ICommandHolderObject, ICommand> ___mChangeStateCallback,
+			DailyScheduler ___mScheduler,
+			ResponseReader ___mResponseReader,
+			ref ICommandHolderObject ___mCollidedObj,
+			ref ICommand ___mStackedCommand,
+			ref bool __runOriginal
+		)
+		{
+			if (!(stacked_command is FishbookCommand)) {
+				return;
+			}
+
+			__runOriginal = false;
+
+			if (___mScheduler != null)
+				___mScheduler.Pause();
+
+			ResponseModel response = null;
+			if (!stacked_command.Execute(out response))
+			{
+				if (SingletonMonoBehaviour<EventManager>.Instance.IsEventQueuing)
+					SingletonMonoBehaviour<SceneManager>.Instance.GoToEvent(Define.System.Save.SlotEnum.None);
+				else
+					___mChangeStateCallback(Define.Scene.Farm.StateEnum.Free, null, null);
+				return;
+			}
+
+			___mResponseReader.Read(response);
+			___mCollidedObj = collided_obj;
+			___mStackedCommand = stacked_command;
 		}
 	}
 }
