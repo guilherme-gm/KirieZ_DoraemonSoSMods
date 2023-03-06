@@ -64,10 +64,10 @@ namespace EnhancementsAndTweaks
 					Harmony.CreateAndPatchAll(mod.GetType(), mod.GetName());
 
 				Logger.LogInfo(
-					$"Mod \"{TtyUtils.BoldText(mod.GetName())}\" is {TtyUtils.BoldText((enabled ? "ENABLED" : "DISABLED"))}"
+					$"Mod \"{mod.GetName()}\" is {(enabled ? "ENABLED" : "DISABLED")}"
 				);
 			} catch (Exception error) {
-				Logger.LogError($"Failed to initialize mod \"{TtyUtils.BoldText(mod.GetName())}\". Error:");
+				Logger.LogError($"Failed to initialize mod \"{mod.GetName()}\". Error:");
 				Logger.LogError(error);
 			}
 		}
