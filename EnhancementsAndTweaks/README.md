@@ -9,21 +9,14 @@ customize it to your desires.
 - [Change list](#change-list)
 	- [Adjust Tool Stamina](#adjust-tool-stamina)
 		- [Reasoning](#reasoning)
-		- [Configs](#configs)
 	- [Alternative Furniture Rotation](#alternative-furniture-rotation)
-		- [Configs](#configs-1)
 	- [Confirm Beehive Removal](#confirm-beehive-removal)
-		- [Configs](#configs-2)
 	- [Event Alert](#event-alert)
-		- [Configs](#configs-3)
 	- [Map Shop Times](#map-shop-times)
-		- [Configs](#configs-4)
 	- [Show Item Price](#show-item-price)
-		- [Configs](#configs-5)
 	- [Sort Lists](#sort-lists)
-		- [Configs](#configs-6)
+		- [Configs](#configs)
 	- [Stamina Bar](#stamina-bar)
-		- [Configs](#configs-7)
 - [Configuration](#configuration)
 - [Building](#building)
 - [Contributting](#contributting)
@@ -61,11 +54,6 @@ you spend less stamina doing your everyday stuff, having stamina for the rest of
 Note that this change made Silver upgrade a bit weird, because it just charges faster. I did not touch it,
 and just consider it as a "I can finish my work faster" upgrade.
 
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
-
 
 ### Alternative Furniture Rotation
 <p align="center">
@@ -82,11 +70,6 @@ I won't call it as "better" because it is also not that fluid, but it is an alte
 
 **Note:** This mod will probably conflict with other mods touch furniture placement, because it replaces the main rotation code.
 
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
-
 
 ### Confirm Beehive Removal
 <p align="center">
@@ -97,19 +80,9 @@ Adds a dialog to confirm before you remove a placed beehive.
 
 This prevents you from accidentally removing a beehive that has bees and end up losing Honey and Bees ( I did this several times :) )
 
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
-
 
 ### Event Alert
 Displays an alert using the event log (the place where stamina status / item obtained / etc are displayed) when a festival is about to start.
-
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
 
 
 ### Map Shop Times
@@ -123,11 +96,6 @@ Shops in Doraemon SoS opens in weird times and different days, which is annoying
 usually will go for an external guide.
 
 This mod simply adds a small window so you can check it in game.
-
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
 
 
 ### Show Item Price
@@ -143,11 +111,6 @@ earning for those items/deciding what to sell.
 
 Although the game provides a UI to keep track of gainings/losses, it is really hard to track individual
 prices, specially when quality stars are added in the sum.
-
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
 
 
 ### Sort Lists
@@ -180,11 +143,6 @@ If there is any other list that you feel the need to be sorted, let me know (or 
 Displays a small window below game's clock with your current stamina.
 
 This removes the need to pause/open the game menu to check.
-
-#### Configs
-| Config Name | Description        | Accepted Values | Default |
-| ----------- | ------------------ | --------------- | ------- |
-| Enabled     | Enable/Disable mod | `true`/`false`  | `true`  |
 
 
 ## Configuration

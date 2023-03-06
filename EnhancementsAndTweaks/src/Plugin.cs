@@ -2,6 +2,7 @@ using BepInEx;
 using EnhancementsAndTweaks.Mods;
 using HarmonyLib;
 using System;
+using System.Text;
 using UnityEngine;
 
 namespace EnhancementsAndTweaks
@@ -32,12 +33,25 @@ namespace EnhancementsAndTweaks
 
 		private AssetBundle Assets;
 
+		private string ClearModName(string name)
+		{
+			// from https://stackoverflow.com/a/1120277
+			StringBuilder sb = new StringBuilder();
+
+			foreach (char c in name) {
+				if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_')
+					sb.Append(c);
+			}
+
+			return sb.ToString();
+		}
+
 		private void TryEnableMod(IMod mod)
 		{
 			try {
 				bool enabled = Config.Bind(
-					mod.GetName(),
-					"Enabled", true,
+					"Mod Enable",
+					$"Enable{this.ClearModName(mod.GetName())}", true,
 					$"Enable {mod.GetName()}.\n{mod.GetDescription()}"
 				).Value;
 
