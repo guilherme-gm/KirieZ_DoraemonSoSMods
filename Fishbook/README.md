@@ -1,4 +1,12 @@
 # Fishbook
+<!-- nexus-disable -->
+<p align="center">
+	<img src="../docs/modImages/Fishbook.gif" width="600px"/>
+</p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/Fishbook.gif[/img][/center]
+-->
 
 Adds a new item to the general store: A fish book.
 
@@ -21,10 +29,21 @@ You must have BepInEx v5 and kz Mod Utils installed on your game.
 	- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 - [kz Mod Utils page](../kzModUtils/)
 
-After having both installed, download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page, extract it and add its folder to `plugins` folder.
+<!-- nexus-disable -->
+After having them installed:
+1. download the latest version of the mod files from [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page and extract it somewhere
+2. Copy the `Fishbook` folder into your game's `BepInEx/plugins/` folder
 
-**Important:** It must be kept insde the "Fishbook" folder.
+<!-- nexus-enable -->
+<!-- nexus-only
+After having them installed:
+[list=1]
+[*] download the latest version of the mod from Files tab and extract it somewhere
+[*] Copy the "Fishbook" folder into your game&#39;s  [font=Courier New][color=#ffff00]BepInEx/plugins/[/color][/font]  folder
+[/list]
+-->
 
+<!-- nexus-disable -->
 ## Building
 You will need Visual Studio 2019 and .NET Framework 3.5 installed.
 
@@ -32,6 +51,15 @@ You will need Visual Studio 2019 and .NET Framework 3.5 installed.
 2. Copy Doraemon's `Assembly-CSharp.dll` and `UnityEngine.UI.dll` into `libs` folder
 3. Open the `Mods.sln` solution
 4. Build it
+
+<!-- nexus-enable -->
+
+## Found an issue?
+If you have found any issue or have questions about it, feel free to open an issue in the [GitHub repository](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/issues).
+
+<!-- nexus-only
+You may also message on the mod board here in Nexus and I will check sometime.
+-->
 
 
 ## Contributting

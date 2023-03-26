@@ -4,6 +4,8 @@ A plugin/mod containing several additions and tweaks ("mods") to the game. It ai
 All of its changes are configurable, so you may enable only the ones you want and even enabling them may allow you to further
 customize it to your desires.
 
+<!-- nexus-disable -->
+
 **Table of Contents:**
 - [Installation](#installation)
 - [List of mods](#list-of-mods)
@@ -24,8 +26,10 @@ customize it to your desires.
 	- [Stamina Bar](#stamina-bar)
 - [Configuration](#configuration)
 - [Building](#building)
+- [Found an issue?](#found-an-issue)
 - [Contributting](#contributting)
 
+<!-- nexus-enable -->
 
 ## Installation
 **Requirements:**
@@ -34,12 +38,23 @@ You must have BepInEx v5 and kz Mod Utils installed on your game.
 	- [How to install BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 - [kz Mod Utils page](../kzModUtils/)
 
+<!-- nexus-disable -->
 After having them installed:
-1. download the latest version of the mod dll from the [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page
-2. Extract its content into your game's `BepInEx/plugins/` folder
+1. download the latest version of the mod files from [Releases](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/releases) page and extract it somewhere
+2. Copy the `EnhancementsAndTweaks` folder into your game's `BepInEx/plugins/` folder
 3. Start the game
 4. **(Optional)** If you don't want to use the default settings, close the game and see [Configuration](#configuration)
 
+<!-- nexus-enable -->
+<!-- nexus-only
+After having them installed:
+[list=1]
+[*] download the latest version of the mod from Files tab and extract it somewhere
+[*] Copy the "EnhancementsAndTweaks" folder into your game&#39;s  [font=Courier New][color=#ffff00]BepInEx/plugins/[/color][/font]  folder
+[*] Start the game
+[*] [b](Optional)[/b]  If you don&#39;t want to use the default settings, close the game and see  Configuration
+[/list]
+-->
 ---
 
 ## List of mods
@@ -97,9 +112,14 @@ and just consider it as a "I can finish my work faster" upgrade.
 ---
 
 ### Alternative Furniture Rotation
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/AlternativeFurnitureRotation.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/AlternativeFurnitureRotation.gif[/img][/center]
+-->
 
 Changes how furniture placement works to provide a different rotation system.
 1. It doesn't force the rotation to the character direction;
@@ -114,9 +134,14 @@ I won't call it as "better" because it is also not that fluid, but it is an alte
 ---
 
 ### Confirm Beehive Removal
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/ConfirmBeehiveRemoval.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/ConfirmBeehiveRemoval.gif[/img][/center]
+-->
 
 Adds a dialog to confirm before you remove a placed beehive.
 
@@ -130,9 +155,14 @@ Displays an alert using the event log (the place where stamina status / item obt
 ---
 
 ### Map Shop Times
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/ShopTimesMod.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/ShopTimesMod.gif[/img][/center]
+-->
 
 Adds a new button to the minimap window to toggle a small extra window that shows shops working hours.
 
@@ -144,9 +174,14 @@ This mod simply adds a small window so you can check it in game.
 ---
 
 ### Quality Crop Effect
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/QualityCropEffect.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/QualityCropEffect.gif[/img][/center]
+-->
 
 Add some particle effects on crops that are in their maximum quality.
 
@@ -158,9 +193,14 @@ This helps you tell when you can stop fertilizing, as otherwise you would have t
 ---
 
 ### Show Can Make Recipes
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/ShowCanMakeRecipes.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/ShowCanMakeRecipes.gif[/img][/center]
+-->
 
 Adds a new button in the Kitchen's menu that allows you to toggle between viewing all
 available recipes or only those you have every requirement (ingredients/tools).
@@ -170,9 +210,14 @@ This makes easier to cookie when you already know what you want and have ingredi
 ---
 
 ### Show Item Price
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/ShowItemPrice.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/ShowItemPrice.gif[/img][/center]
+-->
 
 Adds a new box beside item description in inventory and storages UIs.
 This box presents information about the price of the item when sold.
@@ -208,9 +253,14 @@ If there is any other list that you feel the need to be sorted, let me know (or 
 ---
 
 ### Stamina Bar
+<!-- nexus-disable -->
 <p align="center">
 	<img src="../docs/modImages/StaminaBarMod.gif" width="600px"/>
 </p>
+<!-- nexus-enable -->
+<!-- nexus-only
+[center][img]@@@RawRepositoryURL@@@/docs/modImages/StaminaBarMod.gif[/img][/center]
+-->
 
 Displays a small window below game's clock with your current stamina.
 
@@ -245,8 +295,8 @@ After finding it, simply change `true` to `false` and save. The mod will be disa
 
 Every other setting in this file works in a similar way, find the config, change it to the desired value (check each mod section above to know what each config does).
 
+<!-- nexus-disable -->
 ---
-
 ## Building
 You will need Visual Studio 2019 and .NET Framework 3.5 installed.
 
@@ -254,6 +304,16 @@ You will need Visual Studio 2019 and .NET Framework 3.5 installed.
 2. Copy Doraemon's `Assembly-CSharp.dll` into `libs` folder
 3. Open the `Mods.sln` solution
 4. Build it
+
+<!-- nexus-enable -->
+---
+
+## Found an issue?
+If you have found any issue or have questions about it, feel free to open an issue in the [GitHub repository](https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods/issues).
+
+<!--nexus-only
+You may also message on the mod board here in Nexus and I will check sometime.
+-->
 
 ---
 
