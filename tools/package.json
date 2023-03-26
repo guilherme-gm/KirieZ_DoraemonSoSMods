@@ -1,0 +1,16 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "",
+	"type": "module",
+  "main": "index.js",
+  "scripts": {
+    "md2nexus": "node md2nexus"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "marked": "^4.3.0"
+  }
+}
