@@ -36,6 +36,8 @@ namespace EnhancementsAndTweaks.Mods
 
 		private static bool CanMakeOnly = false;
 
+		private static bool CanToggle = false;
+
 		string IMod.GetName()
 		{
 			return TweakName;
@@ -63,6 +65,7 @@ namespace EnhancementsAndTweaks.Mods
 		)
 		{
 			CanMakeOnly = false;
+			CanToggle = false;
 
 			// Most likely this UI is for shop instead of cooking
 			if (___mRecipeListUIPartController == null)
@@ -70,6 +73,17 @@ namespace EnhancementsAndTweaks.Mods
 
 			RecipeListUIController.Argument argument = arg as RecipeListUIController.Argument;
 			RecipeList = argument.RecipeDatas;
+
+			int i = 0;
+			while (i < argument.RecipeDatas.Length && !CanMakeRecipe(argument.RecipeDatas[i]))
+				i++;
+
+			if (i < argument.RecipeDatas.Length)
+				CanToggle = true;
+
+			if (!CanToggle)
+				return;
+
 			string[] info_texts = new string[]
 			{
 				SingletonMonoBehaviour<MasterManager>.Instance.TextMaster.GetText(TextID.Common.TEXT_OK),
@@ -122,6 +136,9 @@ namespace EnhancementsAndTweaks.Mods
 		{
 			// Most likely this UI is for shop instead of cooking
 			if (___mRecipeListUIPartController == null)
+				return;
+
+			if (!CanToggle)
 				return;
 
 			if (buttons.Has(Define.Input.ActionButton.Menu_Revert)) {
