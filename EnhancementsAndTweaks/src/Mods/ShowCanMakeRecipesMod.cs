@@ -1,11 +1,33 @@
 using BepInEx.Configuration;
 using HarmonyLib;
 using kzModUtils.Resource;
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace EnhancementsAndTweaks.Mods
 {
+
+	internal static class RecipeExtensions {
+		private static FieldInfo CursorIndex = typeof(RecipeListUIPartController)
+			.GetField("mCursorIndex", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+		private static MethodInfo MoveCursor = typeof(RecipeListUIPartController)
+			.GetMethod("MoveCursor", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+		public static void ResetCursor(this RecipeListUIPartController controller)
+		{
+			int? val = CursorIndex.GetValue(controller) as int?;
+			if (val == null) {
+				Console.WriteLine("ResetCursor: Could not find 'val' value.");
+				return; // should never happen, but just in case
+			}
+
+			MoveCursor.Invoke(controller, new object[] { -val });
+		}
+	}
+
 	public class ShowCanMakeRecipesMod : IMod
 	{
 		internal static readonly string TweakName = "Show Can Make Recipes";
@@ -105,6 +127,7 @@ namespace EnhancementsAndTweaks.Mods
 			if (buttons.Has(Define.Input.ActionButton.Menu_Revert)) {
 				CanMakeOnly = !CanMakeOnly;
 
+				___mRecipeListUIPartController.ResetCursor();
 				if (!CanMakeOnly) {
 					___mRecipeListUIPartController.Initialize(RecipeList);
 				} else {
