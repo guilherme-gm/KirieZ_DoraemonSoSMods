@@ -33,6 +33,23 @@ namespace kzModUtils.UI
 		}
 
 		/**
+		 * TitleTopUIController.Initialize is called when the Main Menu is created.
+		 */
+		[HarmonyPatch(typeof(TitleTopUIController), "Initialize")]
+		[HarmonyPostfix]
+		internal static void TitleTopUIController_Initialize(
+		   TitleTopUIController __instance,
+		   UIArgument arg,
+		   TitleTopUIPartController ___mTitleTop
+		)
+		{
+			UIUtils.FireTitleUIReady(new TitleUIReadyEventArgs(
+				__instance,
+				___mTitleTop.transform.Find("Controller").gameObject
+			));
+		}
+
+		/**
 		 * FarmTopUIController.Initialize is called when the GameUI is created.
 		 *
 		 * Hooking it allows us to find important elements of the interface, such as the event log and the main canvas.

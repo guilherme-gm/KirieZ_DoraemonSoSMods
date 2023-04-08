@@ -23,6 +23,21 @@ namespace kzModUtils.UI
 		public static GameObject CommonUICanvas { get; internal set; } = null;
 
 		/**
+		 * Event triggered when the Title UI (Main menu) is ready to receive UI elements.
+		 *
+		 * This is an internal event that is called before OnTitleUIReady.
+		 * Used to generate internal prefabs before other mods starts using them.
+		 */
+		internal static event EventHandler<TitleUIReadyEventArgs> PreOnTitleUIReady;
+
+		/**
+		 * Event triggered when the Title UI (Main menu) is ready to receive UI elements.
+		 *
+		 * To be used by mods that want to extend the game's UI
+		 */
+		public static event EventHandler<TitleUIReadyEventArgs> OnTitleUIReady;
+
+		/**
 		 * Event triggered when the Game UI is ready to receive UI elements.
 		 *
 		 * To be used by mods that want to extend the game's UI
@@ -36,6 +51,12 @@ namespace kzModUtils.UI
 		{
 			// SingletonMonoBehaviour<UIManager>.Instance.Pop(null);
 			SingletonMonoBehaviour<UIManager>.Instance.PopExceptForBottom(null);
+		}
+
+		internal static void FireTitleUIReady(TitleUIReadyEventArgs args)
+		{
+			UIUtils.PreOnTitleUIReady?.Invoke(null, args);
+			UIUtils.OnTitleUIReady?.Invoke(null, args);
 		}
 
 		internal static void FireGameUIReady(GameUIReadyEventArgs args)
