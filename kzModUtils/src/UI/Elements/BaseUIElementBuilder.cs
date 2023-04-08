@@ -8,14 +8,21 @@ namespace kzModUtils.UI.Elements
 	{
 		protected ElementType Type;
 
-		protected Transform Parent = null;
+		public Transform Parent { get; set; }
 
-		protected Vector3 Position = Vector3.zero;
+		protected Vector3 _Position = Vector3.zero;
 
-		protected Vector2 Size = Vector2.zero;
+		public Vector3 Position {
+			get { return _Position; }
+			set { _Position = this.ConvertPosition(value); }
+		}
+
+		public Vector2 Size { get; set; }
 
 		public BaseUIElementBuilder(ElementType elementType)
 		{
+			this.Size = Vector2.zero;
+			this.Parent = null;
 			Type = elementType;
 		}
 
