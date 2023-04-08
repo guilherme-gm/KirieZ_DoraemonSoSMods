@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using BepInEx.Logging;
 
 /**
@@ -15,12 +16,18 @@ internal static class PluginLogger {
 
 	internal static void LogError(object data)
 	{
+		var stackTrace = new StackTrace(1);
+
 		Logger?.LogError(data);
+		Logger?.LogError(stackTrace.ToString());
 	}
 
-	internal static void LogFata(object data)
+	internal static void LogFatal(object data)
 	{
+		var stackTrace = new StackTrace(1);
+
 		Logger?.LogFatal(data);
+		Logger?.LogFatal(stackTrace.ToString());
 	}
 
 	internal static void LogInfo(object data)
