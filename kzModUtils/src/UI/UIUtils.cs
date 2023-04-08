@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using kzModUtils.UI.Events;
 using UnityEngine;
 
@@ -45,6 +46,11 @@ namespace kzModUtils.UI
 		public static event EventHandler<GameUIReadyEventArgs> OnGameUIReady;
 
 		/**
+		 * List of custom tabs for game's menu (M key)
+		 */
+		internal static List<CustomGameMenuTabConfig> CustomMenuTabs = new List<CustomGameMenuTabConfig>();
+
+		/**
 		 * Closes any dialog that is currently open.
 		 */
 		public static void CloseDialog()
@@ -67,6 +73,14 @@ namespace kzModUtils.UI
 		public static Sprite GetUISprite(UISprite sprite)
 		{
 			return UIAssets.Sprites.GetValue(sprite, null);
+		}
+
+		/**
+		 * Registers a custom game menu tab (M key)
+		 */
+		public static void RegisterGameMenuTab(CustomGameMenuTabConfig config)
+		{
+			CustomMenuTabs.Add(config);
 		}
 	}
 }

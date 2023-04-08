@@ -24,6 +24,7 @@ namespace kzModUtils.UI
 		public void Initialize()
 		{
 			Harmony.CreateAndPatchAll(typeof(UIModule));
+			Harmony.CreateAndPatchAll(typeof(CustomGameMenuPatch));
 			UIAssets.Initialize();
 		}
 
