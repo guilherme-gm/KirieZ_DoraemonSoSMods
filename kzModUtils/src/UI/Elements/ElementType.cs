@@ -5,6 +5,7 @@ namespace kzModUtils.UI.Elements
 		BackgroundImage,
 		HorizontalMenuBox,
 		Text,
+		ToggleGroupBuilder,
 		MessageBox,
 	}
 }

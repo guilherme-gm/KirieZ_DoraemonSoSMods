@@ -1,5 +1,6 @@
 using kzModUtils.Resource;
 using kzModUtils.UI.Elements;
+using kzModUtils.UI.Events;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,6 +58,7 @@ namespace kzModUtils.UI
 			Prefabs.Add(ElementType.BackgroundImage, UIElementsAsset.LoadAsset<GameObject>("BackgroundImage"));
 			Prefabs.Add(ElementType.HorizontalMenuBox, RunLoader(new HorizontalMenuBoxLoader()));
 			Prefabs.Add(ElementType.Text, UIElementsAsset.LoadAsset<GameObject>("TextElement"));
+			Prefabs.Add(ElementType.ToggleGroupBuilder, RunLoader(new ToggleGroupLoader()));
 			Prefabs.Add(ElementType.MessageBox, UIElementsAsset.LoadAsset<GameObject>("MessageBox"));
 		}
 
