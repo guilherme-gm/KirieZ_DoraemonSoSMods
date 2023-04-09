@@ -7,7 +7,7 @@ namespace kzModUtils.UI.Elements
 	{
 		public List<string> Options = new List<string>();
 
-		public ToggleGroupBuilder(): base(ElementType.ToggleGroupBuilder) { }
+		public ToggleGroupBuilder(): base(ElementType.ToggleGroup) { }
 
 		public ToggleGroupBuilder AddOption(string text)
 		{

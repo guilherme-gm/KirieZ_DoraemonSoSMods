@@ -69,7 +69,7 @@ namespace kzModUtils.UI.Elements
 			SetupPrefab(prefab, originalButton);
 
 			var elementDict = new Dictionary<ElementType, GameObject>();
-			elementDict.Add(ElementType.ToggleGroupBuilder, prefab);
+			elementDict.Add(ElementType.ToggleGroup, prefab);
 			return elementDict;
 		}
 	}

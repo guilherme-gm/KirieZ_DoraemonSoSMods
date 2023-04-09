@@ -9,7 +9,7 @@ namespace kzModUtils.UI.Elements
 
 		public List<string> Options = new List<string>();
 
-		public ToggleMenuBoxBuilder(): base(ElementType.ToggleMenuBoxBuilder) { }
+		public ToggleMenuBoxBuilder(): base(ElementType.ToggleMenuBox) { }
 
 		public ToggleMenuBoxBuilder SetTitle(string title)
 		{
