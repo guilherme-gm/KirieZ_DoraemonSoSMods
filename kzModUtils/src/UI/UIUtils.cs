@@ -11,6 +11,12 @@ namespace kzModUtils.UI
 	public static class UIUtils
 	{
 		/**
+		 * Padding (multiplier) applied to menu ranges, this limits how many
+		 * custom tabs there may be between 2 original tabs.
+		 */
+		internal static int MenuRangePadding = 100;
+
+		/**
 		 * Event Log controller.
 		 * Event Log is responsible for displaying quick status updates in the bottom left part of the screen,
 		 * such as item obtained or stamina info.
@@ -48,7 +54,7 @@ namespace kzModUtils.UI
 		/**
 		 * List of custom tabs for game's menu (M key)
 		 */
-		internal static List<CustomGameMenuTabConfig> CustomMenuTabs = new List<CustomGameMenuTabConfig>();
+		internal static SortedList<int, CustomGameMenuTabConfig> CustomMenuTabs = new SortedList<int, CustomGameMenuTabConfig>();
 
 		/**
 		 * Closes any dialog that is currently open.
@@ -80,7 +86,19 @@ namespace kzModUtils.UI
 		 */
 		public static void RegisterGameMenuTab(CustomGameMenuTabConfig config)
 		{
-			CustomMenuTabs.Add(config);
+			int lowerRange = ((int) config.After) * MenuRangePadding;
+			int upperRange = (((int) config.After) + 1) * MenuRangePadding;
+
+			int idx = lowerRange;
+			while (idx < upperRange && CustomMenuTabs.ContainsKey(idx))
+				idx++;
+
+			if (idx == upperRange) {
+				PluginLogger.LogError($"Can't add custom menu tab ''. Maximum custom menus between '{config.After}' and '{(CustomGameMenuTabConfig.GameMenuTabs) ((int) config.After + 1)}' reached.");
+				return;
+			}
+
+			CustomMenuTabs.Add(idx, config);
 		}
 	}
 }

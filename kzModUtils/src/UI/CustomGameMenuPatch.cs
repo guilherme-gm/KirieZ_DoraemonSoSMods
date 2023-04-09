@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine;
 
@@ -8,6 +9,32 @@ namespace kzModUtils.UI
 	{
 		private static bool IsMenuInit = false;
 
+		private static void GenerateNewMenuArray<T>(
+			T[] originalArray,
+			T[] newArray,
+			Func<CustomGameMenuTabConfig, T> getMenuDataFunction
+		) {
+			int currentUpperRange = 0;
+			int originalIdx = 0;
+			int newIdx = 0;
+
+			foreach (KeyValuePair<int, CustomGameMenuTabConfig> customMenu in UIUtils.CustomMenuTabs)
+			{
+				while (originalIdx < originalArray.Length && customMenu.Key >= currentUpperRange) {
+					newArray[newIdx] = originalArray[originalIdx];
+					newIdx++;
+					originalIdx++;
+
+					currentUpperRange += UIUtils.MenuRangePadding;
+				}
+
+				newArray[newIdx] = getMenuDataFunction(customMenu.Value);
+				newIdx++;
+			}
+
+			Array.Copy(originalArray, originalIdx, newArray, newIdx, originalArray.Length - originalIdx);
+		}
+
 		[HarmonyPatch(typeof(Define.UI.Menu), "GetTabNames")]
 		[HarmonyPostfix]
 		private static void UI_Menu_GetTabNames(ref string[] __result)
@@ -16,10 +43,9 @@ namespace kzModUtils.UI
 				return;
 
 			var newResult = new string[__result.Length + UIUtils.CustomMenuTabs.Count];
-			Array.Copy(__result, newResult, __result.Length);
-
-			for (int i = __result.Length, j = 0; i < newResult.Length; i++, j++)
-				newResult[i] = UIUtils.CustomMenuTabs[j].Name;
+			GenerateNewMenuArray<string>(__result, newResult, delegate (CustomGameMenuTabConfig config) {
+				return config.Name;
+			});
 
 			__result = newResult;
 		}
@@ -32,12 +58,9 @@ namespace kzModUtils.UI
 				return;
 
 			var newResult = new ScrollableTabsController.IconData[__result.Length + UIUtils.CustomMenuTabs.Count];
-			Array.Copy(__result, newResult, __result.Length);
-
-			for (int i = __result.Length, j = 0; i < newResult.Length; i++, j++) {
-				var spriteConfig = UIUtils.CustomMenuTabs[j].Sprite;
-				newResult[i] = new ScrollableTabsController.IconData(spriteConfig.AtlasId, spriteConfig.SpriteId);
-			}
+			GenerateNewMenuArray<ScrollableTabsController.IconData>(__result, newResult, delegate (CustomGameMenuTabConfig config) {
+				return new ScrollableTabsController.IconData(config.Sprite.AtlasId, config.Sprite.SpriteId);
+			});
 
 			__result = newResult;
 		}
@@ -78,27 +101,25 @@ namespace kzModUtils.UI
 				?.Find("Body")
 				?.Find("Contents");
 
-			PluginLogger.LogInfo("> Part 2");
-
 			if (contents == null) {
 				PluginLogger.LogError("Could not find menu contents.");
 				return;
 			}
 
 			var newMenu = new MenuContentUIPartController[___mMenuContents.Length + UIUtils.CustomMenuTabs.Count];
-			Array.Copy(___mMenuContents, newMenu, ___mMenuContents.Length);
-
-			for (int i = ___mMenuContents.Length, j = 0; i < newMenu.Length; i++, j++) {
-				var controller = UIUtils.CustomMenuTabs[j].MenuPrefabController;
-				var menuObject = GameObject.Instantiate(controller.gameObject, contents);
+			GenerateNewMenuArray<MenuContentUIPartController>(___mMenuContents, newMenu, delegate (CustomGameMenuTabConfig config) {
+				var prefabController = config.MenuPrefabController;
+				var menuObject = GameObject.Instantiate(prefabController.gameObject, contents);
 
 				menuObject.SetActive(true);
-				newMenu[i] = (MenuContentUIPartController) menuObject.GetComponent(controller.GetType());
+				var controller = (MenuContentUIPartController) menuObject.GetComponent(prefabController.GetType());
 
-				__instance.AttachUIParts(newMenu[i]);
-				if (newMenu[i] != null)
-					newMenu[i].Deactivate();
-			}
+				__instance.AttachUIParts(controller);
+				if (controller != null)
+					controller.Deactivate();
+
+				return controller;
+			});
 
 			___mMenuContents = newMenu;
 		}

@@ -4,6 +4,21 @@ namespace kzModUtils.UI
 {
 	public class CustomGameMenuTabConfig
 	{
+		public enum GameMenuTabs {
+			MenuStart = -1,
+			MiniMap = 0,
+			Status = 1,
+			CowSheep = 2,
+			Hen = 3,
+			Villager = 4,
+			Helper = 5,
+			Quest = 6,
+			ImportantItems = 7,
+			Calendar = 8,
+			Stamp = 9,
+			System = 10,
+		}
+
 		/**
 		 * Tab display name
 		 */
@@ -20,5 +35,10 @@ namespace kzModUtils.UI
 		 * added to the menu. So it MUST be in the root of your menu page
 		 */
 		public MenuContentUIPartController MenuPrefabController;
+
+		/**
+		 * After which original tab the new one should be
+		 */
+		public GameMenuTabs After = GameMenuTabs.System;
 	}
 }
