@@ -53,11 +53,48 @@ namespace kzModUtils.UI.Elements
 			}
 
 			var newTable = GameObject.Instantiate(tableView.gameObject);
-			GameObject.Destroy(gameMenu);
-
 			this.SetupScrollableArea(newTable);
 
 			return newTable;
+		}
+		#endregion
+
+		#region Small Menu Separator
+		private void SetupSmallMenuSeparator(GameObject separator)
+		{
+			var controller = separator.AddComponent<SmallMenuSeparatorController>();
+			var textTitle = separator.transform
+				.Find("Text_Title").GetComponent<Text>();
+			var titleSprite = textTitle.transform
+				.Find("Sprite_Icon").GetComponent<Image>();
+			controller.Setup(textTitle, titleSprite);
+
+			controller.SetText("");
+
+			titleSprite.gameObject.SetActive(false);
+		}
+
+		private GameObject GetSmallMenuSeparatorPrefab(GameObject gameMenu)
+		{
+			var separator = gameMenu
+				?.transform
+				?.Find("Controller")
+				?.Find("Body")
+				?.Find("Contents")
+				?.Find("UI_Menu_System")
+				?.Find("Controller")
+				?.Find("Contents_01")
+				?.Find("Title");
+
+			if (separator == null) {
+				PluginLogger.LogError("Could not find Settings list.");
+				return null;
+			}
+
+			var newSeparator = GameObject.Instantiate(separator.gameObject);
+			this.SetupSmallMenuSeparator(newSeparator);
+
+			return newSeparator;
 		}
 		#endregion
 
@@ -68,7 +105,9 @@ namespace kzModUtils.UI.Elements
 
 			Dictionary<ElementType, GameObject> dict = new Dictionary<ElementType, GameObject>();
 			dict.Add(ElementType.ScrollableArea, GetScrollableAreaPrefab(gameMenu));
+			dict.Add(ElementType.SmallMenuSeparator, GetSmallMenuSeparatorPrefab(gameMenu));
 
+			GameObject.Destroy(gameMenu);
 			return dict;
 		}
 	}
