@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,7 +56,7 @@ namespace kzModUtils.UI.Elements
 			groupController.Setup(button);
 		}
 
-		GameObject IElementLoader.Load()
+		Dictionary<ElementType, GameObject> IElementLoader.Load()
 		{
 			var originalButton = GetOriginalButton();
 			if (originalButton == null) {
@@ -66,7 +67,10 @@ namespace kzModUtils.UI.Elements
 			var prefab = new GameObject("ButtonsHolder", typeof(RectTransform));
 
 			SetupPrefab(prefab, originalButton);
-			return prefab;
+
+			var elementDict = new Dictionary<ElementType, GameObject>();
+			elementDict.Add(ElementType.ToggleGroupBuilder, prefab);
+			return elementDict;
 		}
 	}
 }

@@ -39,16 +39,22 @@ namespace kzModUtils.UI
 			UIElementsAsset.Unload(true);
 		}
 
-		internal static GameObject RunLoader(IElementLoader loader)
+		internal static void RunLoader(IElementLoader loader)
 		{
 			try {
 				var result = loader.Load();
-				result?.SetActive(false);
+				if (result == null)
+					return;
 
-				return result;
+				foreach (var kind in result.Keys)
+				{
+					var obj = result.GetValue(kind);
+					obj.SetActive(false);
+
+					Prefabs.Add(kind, obj);
+				}
 			} catch (Exception error) {
 				PluginLogger.LogError($"UIAssets::RunLoader: Failed to load '{loader.GetType()}'. Error: {error}");
-				return null;
 			}
 		}
 
@@ -56,9 +62,9 @@ namespace kzModUtils.UI
 		{
 			UIElementsAsset = AssetBundle.LoadFromFile(ResourceUtils.GetAssetBundlePath(ResourceType.Plugin, "kzModUtils/UIElements", ""));
 			Prefabs.Add(ElementType.BackgroundImage, UIElementsAsset.LoadAsset<GameObject>("BackgroundImage"));
-			Prefabs.Add(ElementType.HorizontalMenuBox, RunLoader(new HorizontalMenuBoxLoader()));
+			RunLoader(new HorizontalMenuBoxLoader()); // HorizontalMenuBox
 			Prefabs.Add(ElementType.Text, UIElementsAsset.LoadAsset<GameObject>("TextElement"));
-			Prefabs.Add(ElementType.ToggleGroupBuilder, RunLoader(new ToggleGroupLoader()));
+			RunLoader(new ToggleGroupLoader()); // ToggleGroup
 			Prefabs.Add(ElementType.MessageBox, UIElementsAsset.LoadAsset<GameObject>("MessageBox"));
 		}
 

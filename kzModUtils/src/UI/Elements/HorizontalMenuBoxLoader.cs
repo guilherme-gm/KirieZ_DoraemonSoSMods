@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -89,7 +90,7 @@ namespace kzModUtils.UI.Elements
 				.Initialize(titleObject.GetComponent<Text>());
 		}
 
-		GameObject IElementLoader.Load()
+		Dictionary<ElementType, GameObject> IElementLoader.Load()
 		{
 			var menuBox = GetOriginalBox();
 			if (menuBox == null) {
@@ -98,7 +99,10 @@ namespace kzModUtils.UI.Elements
 			}
 
 			SetupPrefab(menuBox);
-			return menuBox;
+
+			var elementDict = new Dictionary<ElementType, GameObject>();
+			elementDict.Add(ElementType.HorizontalMenuBox, menuBox);
+			return elementDict;
 		}
 	}
 }
