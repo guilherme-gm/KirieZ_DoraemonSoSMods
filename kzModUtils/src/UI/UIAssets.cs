@@ -62,10 +62,12 @@ namespace kzModUtils.UI
 		{
 			UIElementsAsset = AssetBundle.LoadFromFile(ResourceUtils.GetAssetBundlePath(ResourceType.Plugin, "kzModUtils/UIElements", ""));
 			Prefabs.Add(ElementType.BackgroundImage, UIElementsAsset.LoadAsset<GameObject>("BackgroundImage"));
-			RunLoader(new HorizontalMenuBoxLoader()); // HorizontalMenuBox
 			Prefabs.Add(ElementType.Text, UIElementsAsset.LoadAsset<GameObject>("TextElement"));
-			RunLoader(new ToggleGroupLoader()); // ToggleGroup
 			Prefabs.Add(ElementType.MessageBox, UIElementsAsset.LoadAsset<GameObject>("MessageBox"));
+
+			RunLoader(new GameMenuPartsLoader()); // ScrollableArea
+			RunLoader(new HorizontalMenuBoxLoader()); // HorizontalMenuBox
+			RunLoader(new ToggleGroupLoader()); // ToggleGroup
 		}
 
 		internal static void LoadSprites()

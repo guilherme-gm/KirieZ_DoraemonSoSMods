@@ -4,6 +4,7 @@ namespace kzModUtils.UI.Elements
 	{
 		BackgroundImage,
 		HorizontalMenuBox,
+		ScrollableArea,
 		Text,
 		ToggleGroup,
 		ToggleMenuBox,
