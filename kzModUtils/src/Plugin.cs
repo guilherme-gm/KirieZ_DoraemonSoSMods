@@ -83,6 +83,7 @@ namespace kzModUtils
 		private void Awake()
 		{
 			Plugin.Instance = this;
+			PluginLogger.Logger = this.Logger;
 
 			// Plugin startup logic
 			Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");

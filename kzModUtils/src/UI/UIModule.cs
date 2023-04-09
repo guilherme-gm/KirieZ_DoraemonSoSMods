@@ -24,12 +24,30 @@ namespace kzModUtils.UI
 		public void Initialize()
 		{
 			Harmony.CreateAndPatchAll(typeof(UIModule));
+			Harmony.CreateAndPatchAll(typeof(CustomGameMenuPatch));
 			UIAssets.Initialize();
 		}
 
 		public void Teardown()
 		{
 			UIAssets.Teardown();
+		}
+
+		/**
+		 * TitleTopUIController.Initialize is called when the Main Menu is created.
+		 */
+		[HarmonyPatch(typeof(TitleTopUIController), "Initialize")]
+		[HarmonyPostfix]
+		internal static void TitleTopUIController_Initialize(
+		   TitleTopUIController __instance,
+		   UIArgument arg,
+		   TitleTopUIPartController ___mTitleTop
+		)
+		{
+			UIUtils.FireTitleUIReady(new TitleUIReadyEventArgs(
+				__instance,
+				___mTitleTop.transform.Find("Controller").gameObject
+			));
 		}
 
 		/**

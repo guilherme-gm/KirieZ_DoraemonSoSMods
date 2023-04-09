@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +34,20 @@ namespace kzModUtils.Resource
 		public static string GetText(int textId)
 		{
 			return SingletonMonoBehaviour<MasterManager>.Instance.TextMaster.GetText(textId);
+		}
+
+		/**
+		 * Loads the sprite for character and calls callback with it
+		 *
+		 * @TODO: This will need to be reworked if this lib starts supporting custom Characters
+		 *
+		 * @param character the CharacterID which we want the sprite of
+		 * @param callback function to be called when the sprite is returned
+		 */
+		public static void GetCharacterSprite(Define.Character.Id character, Action<Sprite> callback)
+		{
+			int spriteId = MasterManager.Instance.CharacterMaster.GetCharacter((int) character).SpriteId;
+			SingletonMonoBehaviour<AtlasFactory>.Instance.LoadSprite(Define.Sprite.CHARACTER_ATLAS_ID, spriteId, callback);
 		}
 
 		/**
