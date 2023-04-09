@@ -20,6 +20,16 @@ namespace kzModUtils.UI
 		}
 
 		/**
+		 * Internal tab identifier (not currently used)
+		 * It is recommended that this gets prefixed by a reference to your mod name.
+		 *
+		 * @remarks This may be used in the future if we want to implement menus that
+		 *          are aware about other menus (e.g.: Position this after Mod X menu)
+		 *          But this is NOT implemented right now and the field is simply ignored.
+		 */
+		public string Id;
+
+		/**
 		 * Tab display name
 		 */
 		public string Name;
