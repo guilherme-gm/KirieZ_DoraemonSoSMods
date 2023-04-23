@@ -2,6 +2,10 @@
 title: EventHelper
 ---
 
+!!! warning
+	This is an internal API not ready for full use yet.
+	Although it works and is used internally, it is too incomplete for a safe public use.
+
 `EventHelper` is the main Event Module entry point.
 
 This static class allows modders to interact with game's Events.

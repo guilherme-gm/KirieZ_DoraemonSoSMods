@@ -1,5 +1,7 @@
 site_name: KirieZ's Dor SoS mods
 docs_dir: pages
+repo_url: https://github.com/guilherme-gm/KirieZ_DoraemonSoSMods
+edit_uri: edit/master/docs/pages/
 
 theme:
   name: material
@@ -9,6 +11,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.expand
     - navigation.top
+    - content.action.edit
     - content.code.copy
     - content.code.annotate
   palette:
