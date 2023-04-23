@@ -38,3 +38,4 @@ markdown_extensions:
 
 plugins:
   - mkdocs-nav-weight
+  - search
