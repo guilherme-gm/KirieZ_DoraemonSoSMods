@@ -12,7 +12,9 @@ Welcome to KirieZ's Doraemon Story of Seasons modding docs.
 - If you are a modder looking for kzModUtils docs, you may be interested in
 	- [kzModUtils Guide](./kzModUtils-Guide/index.md) for starters looking how to use it.
 	- [kzModUtils Reference](./kzModUtils-Reference/index.md) if you are already familiar and want to see something specific.
-- If you are a modder looking for general guidance around modding the game, check out [Modder Resources](./Modder-Resources/index.md) page.
+- If you are a modder looking for general guidance around modding the game, you may be interested in
+  - [Modder Resources](./Modder-Resources/index.md) - General guides about modding the game
+  - [DoraemonSoS Reference](./DoraemonSoS-Reference/index.md) - Info about the game internals (like internal names, structures, etc)
 
 
 ## Found an issue?
