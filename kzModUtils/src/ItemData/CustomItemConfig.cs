@@ -21,7 +21,7 @@ namespace kzModUtils.ItemData
 
 		public Define.Item.CategoryEnum Category { get; set; }
 
-		public CustomSpriteConfig Sprite { get; set; }
+		public SpriteConfig Sprite { get; set; }
 
 		public int ResourceId { get; set; }
 

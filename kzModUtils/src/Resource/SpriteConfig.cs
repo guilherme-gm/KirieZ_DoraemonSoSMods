@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace kzModUtils.Resource
 {
-	public class CustomSpriteConfig
+	public class SpriteConfig
 	{
 		public Sprite? Sprite { get; internal set; }
 
@@ -12,13 +12,13 @@ namespace kzModUtils.Resource
 
 		public int SpriteId { get; internal set; }
 
-		public CustomSpriteConfig(int atlasId, int spriteId)
+		public SpriteConfig(int atlasId, int spriteId)
 		{
 			this.AtlasId = atlasId;
 			this.SpriteId = spriteId;
 		}
 
-		public CustomSpriteConfig(Sprite sprite)
+		public SpriteConfig(Sprite sprite)
 		{
 			this.Sprite = sprite;
 		}

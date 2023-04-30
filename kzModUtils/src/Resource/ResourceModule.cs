@@ -45,7 +45,7 @@ namespace kzModUtils.Resource
 		{
 		}
 
-		internal CustomSpriteConfig RegisterSprite(Sprite sprite)
+		internal SpriteConfig RegisterSprite(Sprite sprite)
 		{
 			while (this.NextId < MAX_ID && this.Atlas.ContainsKey(this.NextId))
 				this.NextId++;
@@ -56,7 +56,7 @@ namespace kzModUtils.Resource
 				return null;
 			}
 
-			var config = new CustomSpriteConfig(sprite) {
+			var config = new SpriteConfig(sprite) {
 				AtlasId = ATLAS_ID,
 				SpriteId = NextId,
 			};

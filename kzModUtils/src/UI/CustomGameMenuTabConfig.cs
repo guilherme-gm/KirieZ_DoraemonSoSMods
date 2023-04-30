@@ -37,7 +37,7 @@ namespace kzModUtils.UI
 		/**
 		 * Tab display sprite (The text in the tab comes from Name, it is not batched into the sprite)
 		 */
-		public CustomSpriteConfig Sprite;
+		public SpriteConfig Sprite;
 
 		/**
 		 * UIPartController that is in the root of the menu content prefab.
