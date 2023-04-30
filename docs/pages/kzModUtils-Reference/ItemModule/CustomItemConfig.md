@@ -31,7 +31,7 @@ and are not interactable.
 ### `Category` - Define.Item.CategoryEnum
 Item category/kind. See the enum for the list of options
 
-### `Sprite` - CustomSpriteConfig
+### `Sprite` - SpriteConfig
 Item inventory sprite
 
 ### `ResourceId` - int

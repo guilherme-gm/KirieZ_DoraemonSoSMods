@@ -45,8 +45,8 @@ var UIElementsAsset = AssetBundle.LoadFromFile(
 );
 ```
 
-### `CustomSpriteConfig RegisterSprite(Sprite sprite)`
-Registers a new sprite into the game sprite library and returns a `CustomSpriteConfig` to refer to it.
+### `SpriteConfig RegisterSprite(Sprite sprite)`
+Registers a new sprite into the game sprite library and returns a `SpriteConfig` to refer to it.
 
 See [Dynamic IDs](../../kzModUtils-Guide/Basics/Dynamic-IDs.md) for information about Config classes.
 

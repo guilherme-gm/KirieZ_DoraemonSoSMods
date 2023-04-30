@@ -8,11 +8,11 @@ For those cases, we have to register the data into the game library.
 
 
 ## Registering Sprites
-To include a sprite into the game library, we have to use [ResourceUtils.RegisterSprite](../../kzModUtils-Reference/Resource-and-Text-Modules/ResourceUtils.md#customspriteconfig-registerspritesprite-sprite).
+To include a sprite into the game library, we have to use [ResourceUtils.RegisterSprite](../../kzModUtils-Reference/Resource-and-Text-Modules/ResourceUtils.md#spriteconfig-registerspritesprite-sprite).
 This utility method will take care of including your sprite in a special Atlas
 and make sure this Atlas is available for the game to load.
 
-`RegisterSprite` will give you a `CustomSpriteConfig`, which allows you to
+`RegisterSprite` will give you a `SpriteConfig`, which allows you to
 get the current Atlas ID and Sprite ID assigned to your sprite.
 
 **Example:**
