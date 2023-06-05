@@ -13,6 +13,23 @@ Mods for Doraemon Story of Seasons originally made by KirieZ (@guilherme-gm)
 
 ## List of mods
 
+### Easy Boards
+Adds a new option, "View Info" in chest furnitures in your house. Pressing the key for it will open a menu where you can
+access some usefull menus which would otherwise require you to walk around.
+
+![Easy Boards](./docs/modImages/EasyBoards.gif)
+
+List of available menus:
+- Ledger (from mayor's house)
+- Bulletin board (the one in the city)
+- Guidebooks (from mayor's house)
+  - Bugs
+  - Crops
+  - Fishes
+  - Recipes
+- Gallery (from mayor's house)
+
+
 ### Enhancements and Tweaks
 This mod incorporates several Quality of Life and minor adjustments to the game to improve progression and general playing experience (in the mod-author's vision).
 You are able to toggle each change separately to pick only the ones you want.
