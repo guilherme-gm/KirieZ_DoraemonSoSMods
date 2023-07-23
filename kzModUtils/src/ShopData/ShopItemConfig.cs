@@ -19,8 +19,11 @@ namespace kzModUtils.ShopData
 			this.Item = item;
 		}
 
+		internal int? shopId { get; set; } = null;
+
 		internal ShopMasterModel ToShopMasterModel(int id)
 		{
+			this.shopId = id;
 			return new ShopMasterModel(new CVarietyShopData.SVarietyShopData() {
 				mVarietyId = id,
 				mItemId = this.Item.Id,
