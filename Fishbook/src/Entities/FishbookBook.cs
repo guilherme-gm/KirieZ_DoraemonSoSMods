@@ -110,7 +110,6 @@ namespace Fishbook.Entities
 			}
 
 			if (existingState != null) {
-				Console.WriteLine("Loading statat");
 				foreach (var state in existingState.State)
 				{
 					var parts = state.Key.Split('_');
@@ -127,7 +126,6 @@ namespace Fishbook.Entities
 
 					foreach (var cond in state.Value.Conditions) {
 						var condId = cond.Key;
-						Console.WriteLine($"{pointId} ; {condId} ; {cond.Value}");
 						if (point.Conditions.ContainsKey(condId))
 							point.Conditions[condId].ProgressFlag = cond.Value;
 					}
