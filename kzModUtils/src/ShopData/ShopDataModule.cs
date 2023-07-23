@@ -49,6 +49,24 @@ namespace kzModUtils.ShopData
 		{
 		}
 
+		private void UnregisterAll()
+		{
+			foreach (var shopConfig in ShopConfigs)
+			{
+				var shop = this.GetTargetShop(shopConfig.TargetShop);
+				if (shop == null) {
+					Console.WriteLine($"Could not find shop \"{shopConfig.TargetShop}\". Skipping item \"{shopConfig.Item.Id}\".");
+					return;
+				}
+
+				if (shopConfig.shopId != null)
+					shop.Remove((int) shopConfig.shopId);
+			}
+
+			this.SellOnceConfig.Clear();
+			this.SellOnceEventIds.Clear();
+		}
+
 		[HarmonyPatch(typeof(ShopMasterCollection), "Setup")]
 		[HarmonyPostfix]
 		static void OnOriginalSetup(
@@ -116,6 +134,8 @@ namespace kzModUtils.ShopData
 
 		public void Setup(ModDataSavedState state = null)
 		{
+			this.UnregisterAll();
+
 			foreach (var shopConfig in ShopConfigs)
 			{
 				var shop = this.GetTargetShop(shopConfig.TargetShop);
@@ -144,14 +164,13 @@ namespace kzModUtils.ShopData
 						continue;
 					}
 
-					if (this.SellOnceConfig.ContainsKey(shopConfig.Item.Id))
-						continue;
-
-					this.SellOnceConfig.Add(
-						shopConfig.Item.Id,
-						new SellOnceInfo() { item = shopConfig.Item, BuyEvent = shopConfig.SellOnceEvent }
-					);
-					this.SellOnceEventIds.Add(shopConfig.SellOnceEvent.Id);
+					if (!this.SellOnceConfig.ContainsKey(shopConfig.Item.Id)) {
+						this.SellOnceConfig.Add(
+							shopConfig.Item.Id,
+							new SellOnceInfo() { item = shopConfig.Item, BuyEvent = shopConfig.SellOnceEvent }
+						);
+						this.SellOnceEventIds.Add(shopConfig.SellOnceEvent.Id);
+					}
 				}
 
 				shop.Add(newId, shopConfig.ToShopMasterModel(newId));
